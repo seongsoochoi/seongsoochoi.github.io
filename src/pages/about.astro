@@ -1,13 +1,14 @@
 ---
+import Features from '~/components/widgets/Features.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Stats from '~/components/widgets/Stats.astro';
-import Steps2 from '~/components/widgets/Steps2.astro';
+import Content from '~/components/widgets/Content.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
-  title: 'About us',
+  title: 'About Me',
 };
 ---
 
@@ -15,213 +16,143 @@ const metadata = {
   <!-- Hero Widget ******************* -->
 
   <Hero
-    tagline="About us"
+    tagline="About Me"
     image={{
-      src: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Caos Image',
+      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Woohyun Kim Workspace',
     }}
   >
     <Fragment slot="title">
-      Elevate your online presence with our <br />
-      <span class="text-accent dark:text-white"> Beautiful Website Templates</span>
+      Architecting the Future with <br />
+      <span class="text-accent dark:text-white"> AI & 3D Graphics</span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      Donec efficitur, ipsum quis congue luctus, mauris magna convallis mauris, eu auctor nisi lectus non augue. Donec
-      quis lorem non massa vulputate efficitur ac at turpis. Sed tincidunt ex a nunc convallis, et lobortis nisi tempus.
-      Suspendisse vitae nisi eget tortor luctus maximus sed non lectus.
+      I am an Executive Director and Senior Software Engineer specializing in Generative AI and Computer Graphics. 
+      My journey bridges mathematical theory with high-performance engineering, creating tools that empower users and systems that scale.
     </Fragment>
   </Hero>
 
   <!-- Stats Widget ****************** -->
 
   <Stats
-    title="Statistics about us"
+    title="Engineering Journey"
     stats={[
-      { title: 'Offices', amount: '4' },
-      { title: 'Employees', amount: '248' },
-      { title: 'Templates', amount: '12' },
-      { title: 'Awards', amount: '24' },
+      { title: 'Years Experience', amount: '10+' },
+      { title: 'Key Projects', amount: '15+' },
+      { title: 'Awards & Patents', amount: '5+' },
+      { title: 'Tech Articles', amount: '20+' },
     ]}
   />
 
-  <!-- Features3 Widget ************** -->
+  <!-- Features3 Widget (Focus Areas) ************** -->
 
   <Features3
-    title="Our templates"
-    subtitle="Etiam scelerisque, enim eget vestibulum luctus, nibh mauris blandit nulla, nec vestibulum risus justo ut enim. Praesent lacinia diam et ante imperdiet euismod."
+    title="Core Focus Areas"
+    subtitle="My career has been defined by a deep dive into these three pillars of technology."
     columns={3}
     isBeforeContent={true}
     items={[
       {
-        title: 'Educational',
+        title: 'Generative AI & R&D',
         description:
-          'Morbi faucibus luctus quam, sit amet aliquet felis tempor id. Cras augue massa, ornare quis dignissim a, molestie vel nulla.',
-        icon: 'tabler:template',
+          'Leading research and development at MetaIntelligence. Focusing on large-scale model integration and practical AI applications.',
+        icon: 'tabler:brain',
       },
       {
-        title: 'Interior Design',
+        title: 'Graphics Engineering',
         description:
-          'Vivamus porttitor, tortor convallis aliquam pretium, turpis enim consectetur elit, vitae egestas purus erat ac nunc nulla.',
-        icon: 'tabler:template',
+          'From low-level OpenGL/Vulkan optimizations to high-level rendering engines. Built creative tools like Wonderland and Watch Face Studio.',
+        icon: 'tabler:cube',
       },
       {
-        title: 'Photography',
+        title: 'System Architecture',
         description:
-          'Duis sed lectus in nisl vehicula porttitor eget quis odio. Aliquam erat volutpat. Nulla eleifend nulla id sem fermentum.',
-        icon: 'tabler:template',
+          'Designing robust end-to-end architectures. I believe in building systems that are not just functional but maintainable and scalable.',
+        icon: 'tabler:sitemap',
       },
     ]}
   />
 
-  <!-- Features3 Widget ************** -->
+  <!-- Features Widget (Philosophy) ****************** -->
 
-  <Features3
-    columns={3}
-    isAfterContent={true}
+  <Features
+    id="philosophy"
+    tagline="Values"
+    title="My Philosophy"
+    subtitle="I believe that great software is born from a clear understanding of the problem, not just the tools used to solve it."
     items={[
       {
-        title: 'E-commerce',
+        title: 'Language Agnosticism',
         description:
-          'Rutrum non odio at vehicula. Proin ipsum justo, dignissim in vehicula sit amet, dignissim id quam. Sed ac tincidunt sapien.',
-        icon: 'tabler:template',
+          'I view programming languages as tools, not identities. Whether it is C++, Python, or Kotlin, I focus on the algorithmic logic and architectural integrity appropriate for the problem at hand.',
+        icon: 'tabler:code',
       },
       {
-        title: 'Blog',
+        title: 'Mathematical Foundation',
         description:
-          'Nullam efficitur volutpat sem sed fringilla. Suspendisse et enim eu orci volutpat laoreet ac vitae libero.',
-        icon: 'tabler:template',
+          'With a background in Applied Mathematics, I approach software challenges with first-principles thinking, ensuring optimization and logic are mathematically sound.',
+        icon: 'tabler:math-function',
       },
       {
-        title: 'Business',
+        title: 'Macro-Optimization',
         description:
-          'Morbi et elit finibus, facilisis justo ut, pharetra ipsum. Donec efficitur, ipsum quis congue luctus, mauris magna.',
-        icon: 'tabler:template',
+          'True performance comes from seeing the forest, not just the trees. I prioritize system-wide architectural optimization over premature micro-optimization.',
+        icon: 'tabler:zoom-check',
+      },
+    ]}
+  />
+
+  <!-- Content Widget (Achievements) ****************** -->
+
+  <Content
+    isReversed
+    tagline="Highlights"
+    title="Key Achievements"
+    subtitle="Major milestones from my career at Samsung Electronics and beyond."
+    items={[
+      {
+        title: 'Creative Platforms',
+        description:
+          'Architected and developed "Wonderland" (Wallpaper Creator) and "Watch Face Studio" (Wear OS Tool), empowering millions of Galaxy users to express their creativity.',
       },
       {
-        title: 'Branding',
+        title: 'Innovation & Patents',
         description:
-          'Suspendisse vitae nisi eget tortor luctus maximus sed non lectus. Cras malesuada pretium placerat. Nullam venenatis dolor a ante rhoncus.',
-        icon: 'tabler:template',
+          'Developed "Runtime Gradient Blur" technology (Patent Grade A) and led the implementation of AI Effects for the Galaxy S25 series.',
       },
       {
-        title: 'Medical',
+        title: 'Recognition & Awards',
         description:
-          'Vestibulum malesuada lacus id nibh posuere feugiat. Nam volutpat nulla a felis ultrices, id suscipit mauris congue. In hac habitasse platea dictumst.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Fashion Design',
-        description:
-          'Maecenas eu tellus eget est scelerisque lacinia et a diam. Aliquam velit lorem, vehicula id fermentum et, rhoncus et purus.',
-        icon: 'tabler:template',
+          'Recipient of the Minister Award (Grand Prize) at K-Hackathon and Silver Award at KIT Engineering Fair for excellence in software engineering.',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
-      alt: 'Colorful Image',
+      src: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Achievements Image',
     }}
-  />
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Proven Track Record</h3>
+    </Fragment>
+  </Content>
 
-  <!-- Steps2 Widget ****************** -->
-
-  <Steps2
-    title="Our values"
-    subtitle="Maecenas eu tellus eget est scelerisque lacinia et a diam. Aliquam velit lorem, vehicula id fermentum et, rhoncus et purus. Nulla facilisi. Vestibulum malesuada lacus."
-    items={[
-      {
-        title: 'Customer-centric approach',
-        description:
-          'Donec id nibh neque. Quisque et fermentum tortor. Fusce vitae dolor a mauris dignissim commodo. Ut eleifend luctus condimentum.',
-      },
-      {
-        title: 'Constant Improvement',
-        description:
-          'Phasellus laoreet fermentum venenatis. Vivamus dapibus pulvinar arcu eget mattis. Fusce eget mauris leo.',
-      },
-      {
-        title: 'Ethical Practices',
-        description:
-          'Vestibulum imperdiet libero et lectus molestie, et maximus augue porta. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
-      },
-    ]}
-  />
-
-  <!-- Steps2 Widget ****************** -->
-
-  <Steps2
-    title="Achievements"
-    subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mi risus tempus nulla, sed porttitor est nibh at nulla."
-    isReversed={true}
-    callToAction={{
-      text: 'See more',
-      href: '/',
-    }}
-    items={[
-      {
-        title: 'Global reach',
-        description: 'Nam malesuada urna in enim imperdiet tincidunt. Phasellus non tincidunt nisi, at elementum mi.',
-        icon: 'tabler:globe',
-      },
-      {
-        title: 'Positive customer feedback and reviews',
-        description:
-          'Cras semper nulla leo, eget laoreet erat cursus sed. Praesent faucibus massa in purus iaculis dictum.',
-        icon: 'tabler:message-star',
-      },
-      {
-        title: 'Awards and recognition as industry experts',
-        description:
-          'Phasellus lacinia cursus velit, eu malesuada magna pretium eu. Etiam aliquet tellus purus, blandit lobortis ex rhoncus vitae.',
-        icon: 'tabler:award',
-      },
-    ]}
-  />
-
-  <!-- Features2 Widget ************** -->
+  <!-- Features2 Widget (Contact) ************** -->
 
   <Features2
-    title="Our locations"
-    tagline="Find us"
-    columns={4}
-    items={[
-      {
-        title: 'EE.UU',
-        description: '1234 Lorem Ipsum St, 12345, Miami',
-      },
-      {
-        title: 'Spain',
-        description: '5678 Lorem Ipsum St, 56789, Madrid',
-      },
-      {
-        title: 'Australia',
-        description: '9012 Lorem Ipsum St, 90123, Sydney',
-      },
-      {
-        title: 'Brazil',
-        description: '3456 Lorem Ipsum St, 34567, São Paulo',
-      },
-    ]}
-  />
-
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="Technical Support"
-    tagline="Contact us"
+    title="Connect with Me"
+    tagline="Contact"
     columns={2}
     items={[
       {
-        title: 'Chat with us',
-        description:
-          'Integer luctus laoreet libero, auctor varius purus rutrum sit amet. Ut nec molestie nisi, quis eleifend mi.',
-        icon: 'tabler:messages',
+        title: 'Email',
+        description: 'artrointel@gmail.com',
+        icon: 'tabler:mail',
       },
       {
-        title: 'Call us',
-        description:
-          'Mauris faucibus finibus orci, in posuere elit viverra non. In hac habitasse platea dictumst. Cras lobortis metus a hendrerit congue.',
-        icon: 'tabler:headset',
+        title: 'GitHub',
+        description: 'github.com/artrointel',
+        icon: 'tabler:brand-github',
       },
     ]}
   />

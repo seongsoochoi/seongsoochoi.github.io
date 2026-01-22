@@ -1,0 +1,188 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Content from '~/components/widgets/Content.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Resume - Woohyun Kim',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero
+    tagline="Curriculum Vitae"
+  >
+    <Fragment slot="title">
+      Resume
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Executive Director & Senior Software Engineer with over 10 years of experience in <br class="hidden md:inline" />
+      <span class="font-semibold">Generative AI</span>, <span class="font-semibold">3D Graphics</span>, and <span class="font-semibold">System Architecture</span>.
+    </Fragment>
+  </Hero>
+
+  <!-- Experience Widget ****************** -->
+
+  <Steps
+    id="experience"
+    title="Work Experience"
+    items={[
+      {
+        title: 'Executive Director <br /> <span class="font-normal">MetaIntelligence</span> <br /> <span class="text-sm font-normal">2025 - Present</span>',
+        description:
+          `• Leading the R&D division for Generative AI solutions.<br />
+           • Architecting large-scale deep learning model integration systems.<br />
+           • Directing technical strategy and roadmap for next-generation AI applications.`,
+        icon: 'tabler:briefcase',
+      },
+      {
+        title: 'Software Engineer (Wonderland & AI Effects) <br /> <span class="font-normal">Samsung Electronics</span> <br /> <span class="text-sm font-normal">Mar. 2023 - 2025</span>',
+        description:
+          `• Spearheaded the development of 'Wonderland' (Good Lock module) and core graphics backends.<br />
+           • Implemented AI-driven visual effects for the Galaxy S25 series.<br />
+           • Optimized the Android graphics rendering pipeline for high-performance UI transitions.`,
+        icon: 'tabler:briefcase',
+      },
+      {
+        title: 'Platform Software Engineer (Watch Face Studio) <br /> <span class="font-normal">Samsung Electronics</span> <br /> <span class="text-sm font-normal">Sep. 2020 - 2025</span>',
+        description:
+          `• Designed the core system architecture for Watch Face Studio (WFF, XSD).<br />
+           • Developed the toolchain and SDK for creating Wear OS watch faces.<br />
+           • Collaborated with global design teams to implement complex rendering features.`,
+        icon: 'tabler:briefcase',
+      },
+      {
+        title: 'Android Graphics Engineer <br /> <span class="font-normal">Samsung Electronics</span> <br /> <span class="text-sm font-normal">Sep. 2019 - Sep. 2020</span>',
+        description:
+          `• Executed system-level graphics optimization for Android devices.<br />
+           • Implemented 'Runtime Gradient Blur' (Patent Grade A) and multi-window blur effects.<br />
+           • Enhanced the stability of the Android Framework graphics layer.`,
+        icon: 'tabler:brand-android',
+      },
+      {
+        title: 'Tizen Graphics Engineer <br /> <span class="font-normal">Samsung Electronics</span> <br /> <span class="text-sm font-normal">Jul. 2018 - Sep. 2019</span>',
+        description:
+          `• Developed and optimized graphics using OpenGL ES and DALi Engine for Tizen wearables.<br />
+           • Implemented efficient rendering techniques for low-power devices.`,
+        icon: 'tabler:device-watch',
+      },
+      {
+        title: 'Mobile GPU Driver Engineer <br /> <span class="font-normal">Samsung Electronics</span> <br /> <span class="text-sm font-normal">Feb. 2016 - Jul. 2018</span>',
+        description:
+          `• Engineered ARM Mali GPU drivers for Samsung mobile products.<br />
+           • Focused on driver stability, Khronos compliance, and performance tuning.<br />
+           • Debugged complex GPU driver issues using low-level profiling tools.`,
+        icon: 'tabler:cpu',
+      },
+      {
+        title: 'Samsung Software Membership <br /> <span class="text-sm font-normal">Jan. 2014 - Jul. 2015</span>',
+        description:
+          `• Regular Member (24-1th) & Education Team Leader.<br />
+           • Conducted seminars on 3D Programming (Vector, Matrix, Quaternion) and Algorithms.`,
+        icon: 'tabler:school',
+      },
+    ]}
+    classes={{ container: 'max-w-3xl' }}
+  />
+
+  <!-- Education Widget ****************** -->
+
+  <Steps
+    id="education"
+    title="Education"
+    items={[
+      {
+        title: 'Bachelor of Science in Software Engineering & Applied Mathematics <br /> <span class="font-normal">Kumoh National Institute of Technology</span> <br /> <span class="text-sm font-normal">2008 - 2015</span>',
+        icon: 'tabler:school',
+      },
+    ]}
+    classes={{ container: 'max-w-3xl' }}
+  />
+
+  <!-- Skills Widget ****************** -->
+
+  <Features3
+    title="Technical Skills"
+    subtitle="A comprehensive overview of my technical capabilities."
+    columns={3}
+    items={[
+      {
+        title: 'Languages',
+        description: 'C++, Java, Kotlin, Python, C#, GLSL',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Graphics & GPU',
+        description: 'OpenGL ES, Vulkan, Metal, Unity3D, Unreal Engine, Renderdoc, Mali Graphics Debugger',
+        icon: 'tabler:cube',
+      },
+      {
+        title: 'AI & Data',
+        description: 'Deep Learning, Generative AI, PyTorch, TensorFlow',
+        icon: 'tabler:brain',
+      },
+      {
+        title: 'Platforms',
+        description: 'Android Framework, Wear OS, Tizen, Linux',
+        icon: 'tabler:device-mobile',
+      },
+      {
+        title: 'Tools',
+        description: 'Android Studio, Visual Studio Code, IntelliJ, Blender, Git, CI/CD pipelines',
+        icon: 'tabler:tools',
+      },
+      {
+        title: 'Architecture',
+        description: 'System Design, Design Patterns, OOP, Clean Architecture',
+        icon: 'tabler:sitemap',
+      },
+    ]}
+  />
+
+  <!-- Awards Widget ****************** -->
+
+  <Content
+    title="Honors & Awards"
+    items={[
+      {
+        title: 'K-Hackathon 3: Grand Award (Minister Award)',
+        description: 'Received the highest honor for "Team Globell" (Web-based global free internet phone service).',
+      },
+      {
+        title: 'KIT Engineering Fair: Silver Award',
+        description: 'Recognized for "Team Friendly Farm" (Farming simulation SNG).',
+      },
+      {
+        title: 'HPCSS@UNIST: Outstanding Contribution Award',
+        description: 'Awarded for "Team UIRI" (Simulation of double-slit experiment using Supercomputing).',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1562564055-71e051d33c19?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Awards Image',
+    }}
+  >
+  </Content>
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    title="Looking for a detailed PDF?"
+    subtitle="Download my full resume for offline viewing."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Download Resume',
+        href: '/resume.pdf',
+        target: '_blank',
+        icon: 'tabler:download',
+      },
+    ]}
+  />
+</Layout>
