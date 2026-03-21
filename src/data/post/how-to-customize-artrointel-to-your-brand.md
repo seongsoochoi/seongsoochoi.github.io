@@ -1,14 +1,14 @@
 ---
 publishDate: 2023-08-06T00:00:00Z
-title: How to customize AstroWind template to suit your branding
-excerpt: Personalize AstroWind template for your brand. Our guide unlocks seamless customization steps for a unique online presence.
+title: How to customize Artrointel template to suit your branding
+excerpt: Personalize Artrointel template for your brand. Our guide unlocks seamless customization steps for a unique online presence.
 image: https://images.unsplash.com/photo-1546984575-757f4f7c13cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80
 tags:
   - astro
   - tailwind css
   - theme
 metadata:
-  canonical: https://astrowind.vercel.app/how-to-customize-astrowind-to-your-brand
+  canonical: https://artrointel.github.io/how-to-customize-artrointel-to-your-brand
 ---
 
 ## Congue justo vulputate nascetur convallis varius orci fringilla nulla pharetr
@@ -62,3 +62,4 @@ Dignissim tristique venenatis diam auctor malesuada aenean aliquam ornare iaculi
 Imperdiet sagittis sapien lobortis quis consequat blandit habitant porta potenti sed, natoque dictum nulla phasellus viverra felis pretium parturient. Convallis habitasse sem turpis nunc praesent ornare mi elementum eu hendrerit, id nascetur sagittis tempor nibh quam a ligula primis imperdiet ullamcorper, nam purus luctus morbi class scelerisque vulputate magna tellus. Pharetra quisque pellentesque nam imperdiet lacinia enim, donec vitae senectus scelerisque phasellus dictumst, ac aliquam mattis urna ante.
 
 Habitant praesent pulvinar scelerisque per phasellus lobortis velit, magnis odio himenaeos primis curabitur senectus, nascetur ullamcorper convallis nunc placerat nisl. Porta tellus commodo praesent ullamcorper cursus senectus tempor vivamus, penatibus eu purus ultrices posuere mi sodales, urna quisque accumsan imperdiet convallis aptent nisl. Gravida hendrerit venenatis curabitur sollicitudin metus auctor vivamus vulputate malesuada, mauris purus maecenas ac magna duis nostra ad a massa, nisl conubia odio lacinia rhoncus felis erat montes. Nostra eros proin mi venenatis enim semper ad magnis netus, in vestibulum ornare ac fusce aliquet aptent non condimentum faucibus, tempor arcu potenti blandit magna consequat luctus nam.
+
