@@ -2,10 +2,35 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "command": "./node_modules/.bin/astro dev",
-      "name": "Development server",
+      "name": "Astro: Dev Server",
       "request": "launch",
-      "type": "node-terminal"
+      "type": "node-terminal",
+      "command": "npm run dev:debug",
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "name": "Astro: Local Debug (Edge)",
+      "request": "launch",
+      "type": "node-terminal",
+      "command": "npm run dev:debug",
+      "cwd": "${workspaceFolder}",
+      "serverReadyAction": {
+        "pattern": "Local\\s+(https?://\\S+)",
+        "uriFormat": "%s",
+        "action": "debugWithEdge"
+      }
+    },
+    {
+      "name": "Astro: Local Debug (Chrome)",
+      "request": "launch",
+      "type": "node-terminal",
+      "command": "npm run dev:debug",
+      "cwd": "${workspaceFolder}",
+      "serverReadyAction": {
+        "pattern": "Local\\s+(https?://\\S+)",
+        "uriFormat": "%s",
+        "action": "debugWithChrome"
+      }
     }
   ]
 }
