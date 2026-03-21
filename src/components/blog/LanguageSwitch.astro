@@ -1,0 +1,41 @@
+---
+import { getPermalink } from '~/utils/permalinks';
+import type { Post } from '~/types';
+
+export interface Props {
+  post: Post;
+}
+
+const { post } = Astro.props;
+
+const items = [
+  { code: 'ko', label: '한국어', slug: post.translations?.ko },
+  { code: 'en', label: 'English', slug: post.translations?.en },
+].filter((item) => item.slug);
+
+const hasSwitcher =
+  items.length > 1 && typeof post.language === 'string' && items.some((item) => item.code !== post.language);
+---
+
+{
+  hasSwitcher && (
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 mb-6">
+      <div class="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white/80 p-1 text-sm shadow-sm dark:border-slate-700 dark:bg-slate-900/80">
+        {items.map((item) =>
+          item.code === post.language ? (
+            <span class="rounded-full bg-gray-900 px-3 py-1.5 font-medium text-white dark:bg-white dark:text-slate-900">
+              {item.label}
+            </span>
+          ) : (
+            <a
+              class="rounded-full px-3 py-1.5 font-medium text-muted transition hover:bg-gray-100 hover:text-default dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
+              href={getPermalink(item.slug ?? '', 'post')}
+            >
+              {item.label}
+            </a>
+          )
+        )}
+      </div>
+    </div>
+  )
+}

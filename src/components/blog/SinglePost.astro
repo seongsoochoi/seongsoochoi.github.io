@@ -2,6 +2,7 @@
 import { Icon } from 'astro-icon/components';
 
 import Image from '~/components/common/Image.astro';
+import LanguageSwitch from '~/components/blog/LanguageSwitch.astro';
 import PostTags from '~/components/blog/Tags.astro';
 import SocialShare from '~/components/common/SocialShare.astro';
 
@@ -69,6 +70,7 @@ const { post, url } = Astro.props;
       >
         {post.excerpt}
       </p>
+      <LanguageSwitch post={post} />
 
       {
         post.image ? (

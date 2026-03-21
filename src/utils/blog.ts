@@ -5,6 +5,15 @@ import type { Post } from '~/types';
 import { APP_BLOG } from 'astrowind:config';
 import { cleanSlug, trimSlash, BLOG_BASE, POST_PERMALINK_PATTERN, CATEGORY_BASE, TAG_BASE } from './permalinks';
 
+const EXCLUDED_POST_SLUGS = new Set([
+  'artrointel-template-in-depth',
+  'get-started-website-with-astro-tailwind-css',
+  'how-to-customize-artrointel-to-your-brand',
+  'landing',
+  'markdown-elements-demo-post',
+  'useful-resources-to-create-websites',
+]);
+
 const generatePermalink = async ({
   id,
   slug,
@@ -53,6 +62,8 @@ const getNormalizedPost = async (post: CollectionEntry<'post'>): Promise<Post> =
     tags: rawTags = [],
     category: rawCategory,
     author,
+    language,
+    translations,
     draft = false,
     metadata = {},
   } = data;
@@ -88,6 +99,8 @@ const getNormalizedPost = async (post: CollectionEntry<'post'>): Promise<Post> =
     category: category,
     tags: tags,
     author: author,
+    language: language,
+    translations: translations,
 
     draft: draft,
 
@@ -106,7 +119,7 @@ const load = async function (): Promise<Array<Post>> {
 
   const results = (await Promise.all(normalizedPosts))
     .sort((a, b) => b.publishDate.valueOf() - a.publishDate.valueOf())
-    .filter((post) => !post.draft);
+    .filter((post) => !post.draft && !EXCLUDED_POST_SLUGS.has(post.slug));
 
   return results;
 };

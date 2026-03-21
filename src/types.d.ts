@@ -29,6 +29,10 @@ export interface Post {
   tags?: Taxonomy[];
   /**  */
   author?: string;
+  /**  */
+  language?: 'ko' | 'en';
+  /**  */
+  translations?: PostTranslations;
 
   /**  */
   metadata?: MetaData;
@@ -42,6 +46,11 @@ export interface Post {
 
   /**  */
   readingTime?: number;
+}
+
+export interface PostTranslations {
+  ko?: string;
+  en?: string;
 }
 
 export interface Taxonomy {

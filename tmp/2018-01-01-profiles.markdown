@@ -1,0 +1,206 @@
+---
+layout: post
+title: Profile
+date: 1989-01-10 01:31:00 +0300
+description: Artrointel's profile
+tags: [Artrointel, we.kim, Woohyun.Kim, 김우현] # add tag
+profiles: profile
+---
+
+# Woohyun Kim
+```
+> Hi.
+> I am a developer working at Samsung Electronics. 
+> I'm specialized in graphical things like glsl, 3d rendering engine and framework.
+> I'm interested in AI as well.
+```
+--------------------------------------------------------------------------------
+
+* Software Engineer at Samsung Electronics (Feb. 2016 ~ current)
+* Dept. of Software Engineering & Dept. of Applied Mathematics, [Kumoh National Institute of Technology](http://kumoh.ac.kr) (Mar. 2008 ~ Aug. 2015)
+
+--------------------------------------------------------------------------------
+  
+## * Expertise
+
+3D Graphics Rendering, Debugging, Performance Optimization
+
+## * Fields of Interest
+
+3D Graphics, Game Engine, Deep Learning
+
+## * Journals
+
+[1] Seongsoo Choi, **Woohyun Kim**, and Jongho Kim,*Compression of Hamiltonian matrix: Application to spin-1/2 Heisenberg square
+lattice*, AIP Advances (2016). ([PDF](http://aip.scitation.org/doi/pdf/10.1063/1.4963834))  
+  
+## * Awards
+  
+| Date     |    Awards     | Description | Host |
+|:--------:| :-----------: | :---------- | ---: |
+| '15.09.09. | *K-Hackathon 3*, **Grand Award (Minister)** | Team *Globell*, Web-based global free internet phone service (front-end developer) | [App center](http://appcenter.kr/), [MSIP](http://www.msip.go.kr) |
+| '14.11.14. | *KIT Engineering Fair 2014*, **Silver Award** | Team *Friendly Farm*, Farming simulation game (project leader) | [KIT](http://kumoh.ac.kr), [LINC](http://linc.kumoh.ac.kr) |
+| '14.07.11. | *HPCSS@UNIST 2014*, **Outstanding Contribution Award** | Team *UIRI*, Simulation of double-slit experiment based on supercomputing (OpenMP, MPI) | [KISTI](http://www.kisti.re.kr) |  
+
+## * Working Experiences
+
+* Samsung Electronics (Feb. 2016 ~ Current)  
+  * Developer of Samsung [Wonderland](https://galaxystore.samsung.com/detail/com.samsung.android.wonderland.wallpaper) (Mar.2023 ~ Current)
+  * Software Engineer of [Watch Face Studio](https://developer.samsung.com/watch-face-studio/overview.html) (DWF, XSD) (Sep. 2020 ~ Current)
+  * Android Graphics engineer for Samsung internal graphics projects (Sep. 2019 ~ Sep. 2020)
+  * Tizen Graphics engineer (OpenGL, DALi Engine) for Samsung tizen watch products (Jul. 2018 ~ Sep. 2019)  
+  * Mobile GPU Driver engineer (ARM Mali GPU) for Samsung android mobile products (Feb. 2016 ~ Jul. 2018)  
+
+* Samsung Software Membership (Jan. 2014 ~ Jul. 2015)  
+  * Regular member, 24-1th.  
+  * Education Team Leader (Sep. 2014 ~ Mar. 2015)  
+
+## * History
+  
+| Date    | Description |
+|:-------:| :---------- |
+| '20.09. | * Joined in **Android Watch Face and Tool Kit division** (~ Current) |
+| '19.09. | * Joined in **Android Wear Graphics division** |
+| '18.07. | * Joined in **Tizen Graphics division** |
+| '16.09. | *Participated in the project 'CRM' as a developer (Ref.: Choi*et al.*, AIP Advance (2016)) ('14.11. ~ ) |
+| '16.02. | * Joined in **Samsung Electronics, Mobile Communications Division, Graphics R&D Group as an Engineer of Mobile GPU Driver** |
+| '16.01. | * Sword Art Online ~ Babel of dungeon ~ (Indie Local Game), developed with an artist ('15.11. ~ ) |
+| '15.09. | *Graduated from **Kumoh National Institute of Technology (KIT)** <br>* Team *Globell* (front-end developer), K-Hackathon 3 |
+| '15.07. | * Completed Samsung Software Membership ('14.01. ~ ) |
+| '15.03. | * 'SmartVoice,' Voice-based android system service (developer) |
+| '14.11. | * KIT Engineering Fair 2014, 'Friendly Farm' (project leader) (14.05. ~ ) |
+| '14.09. | *'Cross the bridge !,' Team*AKAPERA* (project leader) & physics engine developer (RPEngine) ('14.05. ~ ) |
+| '14.07. | *Team*UIRI*, Simulation of double-slit experiment based on supercomputing (OpenMP, MPI), [HPCSS@UNIST 2014](http://usc.unist.ac.kr/hpcssunist-2014/) |
+| '14.05. | * Training course for Samsung Tizen web applications |
+| '14.01. | * Joined in [Samsung Software Membership](http://secmem.org/) (regular member, 24-1) |
+| '13.12. | * 'Family Story,' SNS for family (project leader). [Super App Korea 2013](https://youtu.be/LnroJC1IFNU) |
+| '12.07. | * Completed beginner course of supercomputing, [HPCSS@UNIST 2013](http://hpcschool.kr/hpcss2013/) |
+| '12.05. | * Finished military service ('10.04. ~ ) |
+  
+--------------------------------------------------------------------------------
+  
+## * Archive
+### 2023
+
+* Contributed shaders to [ShaderToy](https://www.shadertoy.com/results?query=artrointel)  
+  transition effects were just for the Wonderland project.
+
+### 2022
+
+* Android Wear OS [EveryonesComplication](https://github.com/artrointel/EveryonesComplication) Project,  
+  It Shows Bitcoin price and alarm made with Android Wear OS Complication for Android Watch Face. [GooglePlay](https://play.google.com/store/apps/details?id=com.artrointel.everyonescomplication)
+
+* Android [CanvasOverGLView](https://github.com/artrointel/CanvasOverGLES) Library Project,  
+  Android Canvas can be drawn over GLES-based Android View and Surface objects.
+
+* **Android Wear OS Watch Face** products made with Blender and Watch Face Studio, [Artrointel from GooglePlay](https://play.google.com/store/search?q=artrointel&c=apps).
+
+### 2021
+
+* Developed [Avengers Key](https://github.com/artrointel/streamdeck-avengers) for [Elgato Streamdeck](https://www.elgato.com/en/stream-deck) device,  
+User-customized Animated Graphic button with convenient commands to control local PC.
+
+### 2020
+
+* [Weather-Raindrop](https://youtu.be/ZGL_8u3thSU?t=14) rendering for Samsung Watch Face,  
+  Reverse-engineering from open source solution [tympanus RainEffect](https://tympanus.net/Development/RainEffect/)
+
+* Developed Runtime Gradient blur shader implemented (Patent Grade A at Samsung)
+* Android View blur within multiple windows [[POST](https://artrointel.github.io/android-blur-view-within-multi-windows/)]  
+* Efficient Blur rendering [[POST](https://artrointel.github.io/efficient-blur-rendering/)]  
+
+### 2019
+
+* [Activity Sparkles](https://www.youtube.com/watch?v=B_CbUWJJ4cw) rendering for Samsung Watch Face
+* Rotating objects in 3D Engines [[POST](https://artrointel.github.io/rotating-objects/)]  
+
+### 2018
+
+* Mali GPU Blog for Korean  
+Architecture and Performance of Mali GPU [[POST](https://artrointel.github.io/mali-gpu-1/)]  
+
+### 2017
+
+* Neural Network  
+C++ project (w/o external libraries)  
+  * Neural Network based on Mathematics [[POST](https://artrointel.github.io/neural-network/)]  
+  * Neural Network [github [NN](https://github.com/Team-AI-Learning/mnist_nn/tree/kim) over 92% with mnist example]  
+
+### 2016  
+
+* Sword Art Online (mobile indie game)  
+  * [SAO](https://en.wikipedia.org/wiki/Sword_Art_Online) Animation Indie RPG game using Unity3D  
+    <details>
+    <summary>Details</summary>
+      <div class="video-responsive">
+      <iframe src="https://www.youtube.com/embed/FFwTGsyIyss?start=690" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
+    </details>
+
+### 2015  
+
+* Cross the bridge [[YouTube](https://www.youtube.com/watch?v=j9WeBjJaUlE&list=PLFvdltGhnoAOEi8856S_SpO5De_5REK_o)] [[Doc](http://artrointel.github.io/assets/projects/cross-the-bridge/docs.zip)]  
+  * 3D Game Engine development and bridge simulation, project leader & developer of physics engine([RPEngine](https://github.com/artrointel/RPEngine))  
+  <details>
+    <summary>Thumbnail</summary>
+
+    * Preview  
+    <img src="http://artrointel.github.io/assets/projects/cross-the-bridge/bridge.jpg" alt="CrossTheBridge"> 
+  </details>
+  
+* SmartVoice [[YouTube](https://www.youtube.com/playlist?list=PLFvdltGhnoANUmPkSl9IVSECUSKcswDoK)]  [[Doc](http://artrointel.github.io/assets/projects/smart-voice/docs.zip)]  
+  * Voice-based android system service based on the third-party collective intelligence, API developer  
+  <details>
+    <summary>Thumbnail</summary>
+
+    * Preview  
+    <img src="http://artrointel.github.io/assets/projects/smart-voice/settings.jpg" alt="SmartVoice">
+  </details>
+
+### 2014  
+
+* Friendly Farm  [[YouTube](https://www.youtube.com/watch?v=8CI9qfpottU&list=PLFvdltGhnoAPDOS2YjjSNd1FlrL-JpJZt&index=1)]  [[Doc](http://artrointel.github.io/assets/projects/friendly-farm/docs.zip)]  
+  * Social network game(SNG) with farming simulation & defense game, project leader  
+  <details>
+    <summary>Thumbnail</summary>
+
+    * Preview  
+    <img src="http://artrointel.github.io/assets/projects/friendly-farm/farming.jpg" alt="Farming">
+    <img src="http://artrointel.github.io/assets/projects/friendly-farm/defense.jpg" alt="Defense">
+  </details>
+
+* Family Story  [[Doc](http://artrointel.github.io/assets/projects/family-story/docs.zip)]  
+  * Family-specific SNS application based on android hybrid web app, project leader  
+  <details>
+    <summary>Thumbnail</summary>
+  
+    * Preview  
+    <img src="http://artrointel.github.io/assets/projects/family-story/family-story.jpg" alt="FamilyStory">
+  </details>
+
+* Seminar: Vector, Matrix and Quaternion for 3D Programming  
+  <details>
+    <summary>Preview</summary>
+      <iframe src="//www.slideshare.net/slideshow/embed_code/key/j8r1JUnNZet8E0" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/WoohyunKim16/3d-85975448" title="3D프로그래밍을 위한 벡터,행렬과 사원수" target="_blank">3D프로그래밍을 위한 벡터,행렬과 사원수</a> </strong> from <strong><a href="https://www.slideshare.net/WoohyunKim16" target="_blank">WoohyunKim16</a></strong> </div>
+  </details>
+
+* OpenMP and MPI for Beginners  
+  <details>
+    <summary>Preview</summary>
+      <iframe src="//www.slideshare.net/slideshow/embed_code/key/b8E8s3PsQjwKqr" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/WoohyunKim16/openmp-for-beginners" title="OpenMP for beginners" target="_blank">OpenMP for beginners</a> </strong> from <strong><a href="https://www.slideshare.net/WoohyunKim16" target="_blank">WoohyunKim16</a></strong> </div>
+  </details>
+  
+--------------------------------------------------------------------------------
+
+## * Language and Skills  
+
+C++, C#, Java, Kotlin, JavaScript, HTML, Bash Shell, Python, XSD,
+Android Framework and Android Wear OS, OpenGL ES, GLSL, OpenMP, MPI
+
+## * Experienced Tools  
+
+Android Studio, Tizen Studio, Visual Studio, Visual Studio Code, Eclipse, Unity3D, Unreal, MGD, Renderdoc, Blender
+
+--------------------------------------------------------------------------------
+
+#### Old profile - [[PDF](http://artrointel.github.io/assets/data/woohyun_kim_portfolio.pdf)] - last update: '2015.10  
