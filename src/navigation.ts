@@ -11,16 +11,8 @@ export const headerData = {
       href: getPermalink('/resume'),
     },
     {
-      text: 'Portfolio',
-      href: getPermalink('/portfolio'),
-    },
-    {
       text: 'Blog',
       href: getBlogPermalink(),
-    },
-    {
-      text: 'Contact',
-      href: getPermalink('/contact'),
     },
   ],
   actions: [], // Removed Download CV button
@@ -33,9 +25,7 @@ export const footerData = {
       links: [
         { text: 'About', href: getPermalink('/about') },
         { text: 'Resume', href: getPermalink('/resume') },
-        { text: 'Portfolio', href: getPermalink('/portfolio') },
         { text: 'Blog', href: getBlogPermalink() },
-        { text: 'Contact', href: getPermalink('/contact') },
       ],
     },
     {

@@ -56,13 +56,18 @@ $$ F(x) \simeq \sum_{i=1}^N v_i \Phi(w_i^Tx + b_i) = f(x) \text{ where } i \in 1
   따라서 정답 값 $ t_{i} $ 와 예측 값 $ x_{i}^{(1)} $ 의 오차(이하 손실률 J)를 계산하고, 정답으로 근사시킬 $w(weight) $ 및 $ b(bias)$의 값을 찾아가야 한다.
   이를 위해서는 $ x_{i}^{(1)} $의 계산에 참여한 $w_{i}^{(1)}$ 및 $b_{i}^{(1)}$ 값이 손실률에 얼마나 기여했는지에 대해 찾아서 아래처럼 적절히 update해야 할 것이다.
 
-$$ \begin{align}
-w &\leftarrow w - \mu \frac{\partial J}{\partial w} , \mu \text{ is learning rate}  \\\\
-b &\leftarrow b - \mu \frac{\partial J}{\partial b} , \mu \text{ is learning rate} \end{align} $$
+$$
+\begin{aligned}
+w &\leftarrow w - \mu \frac{\partial J}{\partial w}, \quad \mu \text{ is learning rate} \\
+b &\leftarrow b - \mu \frac{\partial J}{\partial b}, \quad \mu \text{ is learning rate}
+\end{aligned}
+$$
 
   예를 들어, 손실함수 J를 아래의 *mean-squared-error*를 사용하는 경우를 생각해보자.
 
-$$ \Large J = \frac{1}{2} \sum_{i=1}^N (t_{i} - x_{i})^2 $$
+$$
+J = \frac{1}{2} \sum_{i=1}^N (t_{i} - x_{i})^2
+$$
 
   이 경우 그래프는 아래와 같다.
 
@@ -79,29 +84,38 @@ $$ \Large J = \frac{1}{2} \sum_{i=1}^N (t_{i} - x_{i})^2 $$
 
   * Sigmoid
 ![Sigmoid](/assets/projects/neural-network/sigmoid.JPG)
-  $ \Large f(x) = \frac{1}{1+e^{-x}}$ , $ \frac {d f}{d x} = f(x) (1-f(x)) $
+$$
+f(x) = \frac{1}{1+e^{-x}}, \qquad \frac{d f}{d x} = f(x) (1-f(x))
+$$
 
-  $ pf) $
-
-  $ \begin{align} \\
-  \frac {d f}{d x} &= -(1+e^{-x})^{-2} (-e^{-x})  \\\\
-  &= \frac {1}{1+e^{-x}} \frac {e^{-x}}{1+e^{-x}}  \\\\
-  \therefore \frac {d f}{d x} &= f(x) (1-f(x))  \end{align} $
+$$
+\begin{aligned}
+\frac{d f}{d x} &= -(1+e^{-x})^{-2} (-e^{-x}) \\
+&= \frac{1}{1+e^{-x}} \frac{e^{-x}}{1+e^{-x}} \\
+\therefore \frac{d f}{d x} &= f(x) (1-f(x))
+\end{aligned}
+$$
 
   * ReLU
 ![ReLU](/assets/projects/neural-network/relu.JPG)
-  $ \Large f(x) = \begin{cases} \\
-  0 \text{, if } x \le 0  \\\\
-  x \text{, if } x \gt 1  \\\\
-  \end{cases}
-  \text{, definitely }
-  \frac {d f}{d x} = \begin{cases} \\
-  0 \text{, if } x \le 0  \\\\
-  1 \text{, if } x \gt 1  \\\\
-  \end{cases} $
+$$
+f(x) =
+\begin{cases}
+0, & \text{if } x \le 0 \\
+x, & \text{if } x \gt 1
+\end{cases},
+\qquad
+\frac{d f}{d x} =
+\begin{cases}
+0, & \text{if } x \le 0 \\
+1, & \text{if } x \gt 1
+\end{cases}
+$$
 
   * softmax
-  $ f(x_{i}) = \frac {e^{x_{i}}}{\sum_{j=1}^N e^{x_{j}}} $
+$$
+f(x_{i}) = \frac{e^{x_{i}}}{\sum_{j=1}^N e^{x_{j}}}
+$$
 
 ---
 
@@ -120,11 +134,18 @@ $$ \Large J = \frac{1}{2} \sum_{i=1}^N (t_{i} - x_{i})^2 $$
 
   * cross-entropy
 
-  $$ \Large J(x_{k}^{d}) = -\sum_{i=1}t_{i} \log x_{i}^{d} \small \text{ , where t is an answer vector, d is an output layer, k is one of index i} $$
+$$
+J(x_{k}^{d}) = -\sum_{i=1}^N t_{i} \log x_{i}^{d}
+\quad \text{, where t is an answer vector, d is an output layer, k is one of index i}
+$$
 
   ⓐ$ \frac {\partial J }{\partial x_{k}} $
-  $ \begin{align} \text{definitely, } \frac {\partial J }{\partial x_{k}} &= - \frac {t}{x_{k}}  \\\\
-  \therefore \frac {\partial J }{\partial x} &= - \frac {t}{x} \end{align} $
+$$
+\begin{aligned}
+\text{definitely, } \frac{\partial J}{\partial x_{k}} &= - \frac{t}{x_{k}} \\
+\therefore \frac{\partial J}{\partial x} &= - \frac{t}{x}
+\end{aligned}
+$$
 
   (그림)
 
@@ -132,10 +153,15 @@ $$ \Large J = \frac{1}{2} \sum_{i=1}^N (t_{i} - x_{i})^2 $$
   위 그림에서 보듯이, 특정 $z_{k}^{(2)} \text{, } (k = i) \text{ or } (k \ne i) $에 의한 cross entropy 계산은 다른 모든 $x_{i}^{(2)}$에 모두 영향을 미치므로,
   모든 $x_{i}^{(2)}$에 대한 변화율을 합해주어야 한다. 즉,
 
-  ⓒ $ \begin{align} \nabla_{z_{k}} J &= \sum_{i} \color{red}{\frac{\partial J}{\partial x_{i}}} \color{blue}{\frac{\partial x_{i}}{\partial z_{k}}} \text{, } (k = i) \text{ or } (k \ne i)  \\\\
-   &= \sum_{i \ne k} \frac{\partial J}{\partial x_{i}} \frac{\partial x_{i}}{\partial z_{k}} + \frac{\partial J}{\partial x_{k}} \frac{\partial x_{k}}{\partial z_{k}} \end{align} $
+  ⓒ
+$$
+\begin{aligned}
+\nabla_{z_{k}} J &= \sum_{i} \frac{\partial J}{\partial x_{i}} \frac{\partial x_{i}}{\partial z_{k}}, \text{ } (k = i) \text{ or } (k \ne i) \\
+&= \sum_{i \ne k} \frac{\partial J}{\partial x_{i}} \frac{\partial x_{i}}{\partial z_{k}} + \frac{\partial J}{\partial x_{k}} \frac{\partial x_{k}}{\partial z_{k}}
+\end{aligned}
+$$
 
-  그런데 이미 ⓐ에서 $ \color{red}{\frac {\partial J }{\partial x}} = - \frac {t}{x} $는 알고 있으니, $ \color{blue} {\frac{\partial x}{\partial z}} $에 대해 생각해보자.
+  그런데 이미 ⓐ에서 $ \frac {\partial J }{\partial x} = - \frac {t}{x} $는 알고 있으니, $ \frac{\partial x}{\partial z} $에 대해 생각해보자.
 
   위 그림처럼 cross entropy를 통해 손실률 J을 계산하기 전에 사용한 activation function은 softmax이다. 즉,
   $ x_{k}^{(2)}  = f(z_{k}^{(2)}) = \frac{e^{z_{k}^{(2)}}} { \sum e^{z_{i}^{(2)}}} \text{ , Let } S =\sum e^{z_{i}^{(2)}} $
@@ -143,25 +169,39 @@ $$ \Large J = \frac{1}{2} \sum_{i=1}^N (t_{i} - x_{i})^2 $$
 
   *i)* $ i = k $ 인 경우
 
-  $ \begin{align} \frac{\partial x_{i}}{\partial z_{k}} &= \frac{e^{z_{i}} S - e^{z_{k}} e^{z_{i}}}{S^2} = \frac{e^{z_{i}} (S - e^{z_{k}})} { S^2}   \\\\
-  &= \frac{e^z_{i}}{S} \frac{S-e^{z_{k}}}{S} = x_{i} (1-x_{i}) \text{    } \because e^{z_{i}} = e^{z_{k}} \end{align} $
+$$
+\begin{aligned}
+\frac{\partial x_{i}}{\partial z_{k}} &= \frac{e^{z_{i}} S - e^{z_{k}} e^{z_{i}}}{S^2} = \frac{e^{z_{i}} (S - e^{z_{k}})} { S^2} \\
+&= \frac{e^{z_{i}}}{S} \frac{S-e^{z_{k}}}{S} = x_{i} (1-x_{i}) \text{ } \because e^{z_{i}} = e^{z_{k}}
+\end{aligned}
+$$
 
   *ii)* $ i \neq k $ 인 경우
 
-  $ \frac{\partial x_{i}}{\partial z_{k}} = \frac{0 \cdot S - e^{z_{i}} e^{z_{k}}} {S^2} = \frac{- e^{z_{i}} e^{z_{k}}} {S \cdot S} = -x_{i} x_{k} $
+$$
+\frac{\partial x_{i}}{\partial z_{k}} = \frac{0 \cdot S - e^{z_{i}} e^{z_{k}}} {S^2} = \frac{- e^{z_{i}} e^{z_{k}}} {S \cdot S} = -x_{i} x_{k}
+$$
 
   이제 ⓒ의 식으로 돌아와서 다시 정리하면,
-  $ \begin{align} \nabla_{z_{k}} J &= \sum_{i} \color{red}{\frac{\partial J}{\partial x_{i}}} \color{blue}{\frac{\partial x_{i}}{\partial z_{k}}} \text{, } (k = i) \text{ or } (k \ne i)  \\\\
-   &= \sum_{i \ne k} \frac{\partial J}{\partial x_{i}} \frac{\partial x_{i}}{\partial z_{k}} + \frac{\partial J}{\partial x_{k}} \frac{\partial x_{k}}{\partial z_{k}}   \\\\
-   &= \sum_{i \ne k} (- \frac{t_{i}}{x_{i}}) \cdot (-x_{i} x_{k}) + (- \frac{t_{k}}{x_{k}}) \cdot ( x_{k} (1-x_{k}))   \\\\
-   &= x_{k} \sum_{i \ne k} t_{i} + t_{k} (x_{k}-1) = x_{k} \sum_{i} t_{i} - t_{k}   \\\\
-   &= x_{k} - t_{k} \text{ ,  } \because \sum t_{i} = 1  \end{align} $
+$$
+\begin{aligned}
+\nabla_{z_{k}} J &= \sum_{i} \frac{\partial J}{\partial x_{i}} \frac{\partial x_{i}}{\partial z_{k}}, \text{ } (k = i) \text{ or } (k \ne i) \\
+&= \sum_{i \ne k} \frac{\partial J}{\partial x_{i}} \frac{\partial x_{i}}{\partial z_{k}} + \frac{\partial J}{\partial x_{k}} \frac{\partial x_{k}}{\partial z_{k}} \\
+&= \sum_{i \ne k} \left(- \frac{t_{i}}{x_{i}}\right) (-x_{i} x_{k}) + \left(- \frac{t_{k}}{x_{k}}\right) ( x_{k} (1-x_{k})) \\
+&= x_{k} \sum_{i \ne k} t_{i} + t_{k} (x_{k}-1) = x_{k} \sum_{i} t_{i} - t_{k} \\
+&= x_{k} - t_{k} \text{ , } \because \sum t_{i} = 1
+\end{aligned}
+$$
 
-  $ \Large \therefore \frac{\partial J}{\partial z} = x-t $
+$$
+\therefore \frac{\partial J}{\partial z} = x-t
+$$
 
   ⓓ 이제 $w$, $b$에 의한 J의 변화율을 구하기에 앞서 $ z_{k}^{(d)} $의 정의를 Layer $d$에 대하여 일반화하면 다음과 같다.
 
-  $$ \Large z_{i}^{(d)} = \sum_{j=1}^N w_{i,j}^{(d)} x_{j}^{(d-1)} + b_{i}^{(d)} $$
+$$
+z_{i}^{(d)} = \sum_{j=1}^N w_{i,j}^{(d)} x_{j}^{(d-1)} + b_{i}^{(d)}
+$$
 
   아래 ⓔ, ⓕ를 통해 각각의 변화율을 차례로 계산해보자.
 
@@ -170,15 +210,25 @@ $$ \Large J = \frac{1}{2} \sum_{i=1}^N (t_{i} - x_{i})^2 $$
   $ \color{red}{\frac{\partial J}{\partial z_{i}^{(d)}}} $ 는 ⓒ에서 이미 구한 값이다.
   또한 $ \color{blue}{\frac{\partial z_{i}^{(d)}} {\partial w_{i,j}^{(d)}}} $는 명백히 $ x_{i}^{(d-1)} $ 이므로, 따라서
 
-  $$ \therefore \frac{\partial J}{\partial w_{i,j}^{(d)}} = \frac{\partial J}{\partial z_{i}^{(d)}} \cdot x_{i}^{(d-1)} $$
+$$
+\therefore \frac{\partial J}{\partial w_{i,j}^{(d)}} = \frac{\partial J}{\partial z_{i}^{(d)}} \cdot x_{i}^{(d-1)}
+$$
 
   ⓕ $b$의 변화율
-  $ \begin{align} \frac{\partial J}{\partial b_{i}^{(d)}} &= \frac{\partial J}{\partial z_{i}^{(d)}} \cdot \frac{\partial z_{i}^{(d)}}{\partial b_{i}^{(d)}}   \\\\
-  &= \frac{\partial J}{\partial z_{i}^{(d)}} \text{  } (\because definitely \frac{\partial z_{i}^{(d)}}{\partial b_{i}^{(d)}} = 1) \end{align} $
+$$
+\begin{aligned}
+\frac{\partial J}{\partial b_{i}^{(d)}} &= \frac{\partial J}{\partial z_{i}^{(d)}} \cdot \frac{\partial z_{i}^{(d)}}{\partial b_{i}^{(d)}} \\
+&= \frac{\partial J}{\partial z_{i}^{(d)}} \text{ } (\because \frac{\partial z_{i}^{(d)}}{\partial b_{i}^{(d)}} = 1)
+\end{aligned}
+$$
 
   ⓖ 마지막으로 $ \frac{\partial J} {\partial x_{j}^{(d-1)}} $를 구하면, 재귀적으로 ⓑ~ⓖ의 과정을 수행할 수 있다.
-  $ \begin{align} \frac{\partial J} {\partial x_{j}^{(d-1)}} &= \frac{\partial J}{\partial z_{i}^{(d)}} \cdot \frac{\partial z_{i}^{(d)}} {\partial x_{j}^{(d-1)}}   \\\\
-  &= \frac{\partial J}{\partial z_{i}^{(d)}} \cdot w_{i,j}^{(d)} \end{align} $
+$$
+\begin{aligned}
+\frac{\partial J} {\partial x_{j}^{(d-1)}} &= \frac{\partial J}{\partial z_{i}^{(d)}} \cdot \frac{\partial z_{i}^{(d)}} {\partial x_{j}^{(d-1)}} \\
+&= \frac{\partial J}{\partial z_{i}^{(d)}} \cdot w_{i,j}^{(d)}
+\end{aligned}
+$$
 
   여기에서 $ \frac{\partial J}{\partial z_{i}^{(d)}} $는 ⓒ에서 이미 구한 값이므로 $ \frac{\partial J} {\partial x_{j}^{(d-1)}} $의 계산이 가능하다.
 
