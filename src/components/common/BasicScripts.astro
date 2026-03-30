@@ -9,6 +9,28 @@ import { UI } from 'astrowind:config';
 
   window.basic_script = true;
 
+  function getOpenModalsCount() {
+    return document.querySelectorAll('[data-modal]:not(.hidden)').length;
+  }
+
+  function openModal(modal) {
+    if (!modal) return;
+    modal.classList.remove('hidden');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('overflow-hidden');
+    modal.dispatchEvent(new CustomEvent('modal:open', { bubbles: true }));
+  }
+
+  function closeModal(modal) {
+    if (!modal) return;
+    modal.classList.add('hidden');
+    modal.setAttribute('aria-hidden', 'true');
+    if (getOpenModalsCount() <= 1) {
+      document.body.classList.remove('overflow-hidden');
+    }
+    modal.dispatchEvent(new CustomEvent('modal:close', { bubbles: true }));
+  }
+
   function applyTheme(theme) {
     if (theme === 'dark') {
       document.documentElement.classList.add('dark');
@@ -162,6 +184,41 @@ import { UI } from 'astrowind:config';
     onLoad();
     onPageShow();
   });
+
+  if (!window.modal_script) {
+    window.modal_script = true;
+
+    document.addEventListener('click', (event) => {
+      const openTrigger = event.target.closest('[data-modal-open]');
+      if (openTrigger) {
+        event.preventDefault();
+        const targetId = openTrigger.getAttribute('data-modal-open') || openTrigger.getAttribute('aria-controls');
+        if (!targetId) return;
+        const modal = document.getElementById(targetId);
+        openModal(modal);
+        return;
+      }
+
+      const closeTrigger = event.target.closest('[data-modal-close]');
+      if (closeTrigger) {
+        event.preventDefault();
+        const explicitId = closeTrigger.getAttribute('data-modal-close');
+        const modal = explicitId ? document.getElementById(explicitId) : closeTrigger.closest('[data-modal]');
+        closeModal(modal);
+        return;
+      }
+
+      if (event.target && event.target.matches('[data-modal]')) {
+        closeModal(event.target);
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key !== 'Escape') return;
+      const openModals = document.querySelectorAll('[data-modal]:not(.hidden)');
+      openModals.forEach((modal) => closeModal(modal));
+    });
+  }
 </script>
 
 <script is:inline>
