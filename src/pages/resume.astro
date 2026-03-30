@@ -4,11 +4,14 @@ import Hero from '~/components/widgets/Hero.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import Content from '~/components/widgets/Content.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+import samsungLogoBlack from '~/assets/images/logo_samsung_black.png';
+import samsungLogoWhite from '~/assets/images/logo_samsung_white.png';
+import metaLogoRaw from '~/assets/images/logo_metaintelligence.svg?raw';
 
 const metadata = {
   title: 'Resume - Woohyun Kim',
 };
+
 ---
 
 <Layout metadata={metadata}>
@@ -23,9 +26,53 @@ const metadata = {
 
     <Fragment slot="subtitle">
       Executive Director & Senior Software Engineer with over 10 years of experience in <br class="hidden md:inline" />
-      <span class="font-semibold">Generative AI</span>, <span class="font-semibold">3D Graphics</span>, and <span class="font-semibold">System Architecture</span>.
+      <span class="font-semibold">3D Graphics</span> and <span class="font-semibold">Generative AI</span>.
     </Fragment>
   </Hero>
+
+  <!-- Company Logos ******************* -->
+
+  <section class="py-4 md:py-6">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-wrap justify-center items-end gap-8 sm:gap-12">
+        <div class="flex flex-col items-center gap-2">
+          <a
+            href="https://www.samsung.com/sec/about-us/brand-identity/logo/"
+            target="_blank"
+            rel="noopener"
+            class="block"
+            aria-label="Samsung Electronics logo"
+          >
+            <div class="h-12 sm:h-14 w-40 sm:w-44 flex items-center justify-center">
+              <img
+                src={samsungLogoBlack.src}
+                alt="Samsung Electronics"
+                class="h-full w-auto object-contain block dark:hidden"
+                loading="lazy"
+                decoding="async"
+              />
+              <img
+                src={samsungLogoWhite.src}
+                alt="Samsung Electronics"
+                class="h-full w-auto object-contain hidden dark:block"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </a>
+          <span class="text-xs text-muted">2014-2025</span>
+        </div>
+
+        <div class="flex flex-col items-center gap-2">
+          <div class="h-12 sm:h-14 w-16 sm:w-20 flex items-center justify-center">
+            <span class="sr-only">MetaIntelligence</span>
+            <div class="meta-logo w-16 sm:w-20 [&>svg]:w-full [&>svg]:h-auto" set:html={metaLogoRaw} />
+          </div>
+          <span class="text-xs text-muted">2025-Present</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Experience Widget ****************** -->
 
@@ -36,39 +83,38 @@ const metadata = {
       {
         title: 'Executive Director <br /> <span class="font-normal">MetaIntelligence</span> <br /> <span class="text-sm font-normal">2025 - Present</span>',
         description:
-          `• Leading the R&D division for Generative AI solutions.<br />
-           • Architecting large-scale deep learning model integration systems.<br />
-           • Directing technical strategy and roadmap for next-generation AI applications.`,
+          `• Led MVI (Meta Vision AI), a manufacturing defect detection product; full-stack delivery using GAN and Stable Diffusion models, with shading-aware vision detection.<br />
+           • Led and built Namespring, a naming recommendation service, delivering both backend and frontend in a React + Vite stack.`,
         icon: 'tabler:briefcase',
       },
       {
         title: 'Software Engineer (Wonderland & AI Effects) <br /> <span class="font-normal">Samsung Electronics</span> <br /> <span class="text-sm font-normal">Mar. 2023 - 2025</span>',
         description:
-          `- Wonderland: Served as a core developer for the "Wallpaper Transition Effects" section of 'Wonderland' (Good Lock).<br />
-           - VanillaVibes: Built a shared RenderEffect-based AI visual effects rendering library for showcasing AI features across Galaxy phones, and drove its official integration starting with One UI 7.0; it has continued to evolve in active production ever since.<br />
-           - Internal Graphic Libs: Optimized internal graphics library components, including Transparent Video Player and Skottie View, to improve rendering performance and runtime stability.`,
+          `• Wonderland: Served as a core developer for the "Wallpaper Transition Effects" section of 'Wonderland' (Good Lock).<br />
+           • VanillaVibes: Built a shared RenderEffect-based AI visual effects rendering library for showcasing AI features across Galaxy phones, and drove its official integration starting with One UI 7.0; it has continued to evolve in active production ever since.<br />
+           • Internal Graphic Libs: Optimized internal graphics library components, including Transparent Video Player and Skottie View, to improve rendering performance and runtime stability.`,
         icon: 'tabler:briefcase',
       },
       {
         title: 'Platform Software Engineer (Watch Face Studio) <br /> <span class="font-normal">Samsung Electronics</span> <br /> <span class="text-sm font-normal">Sep. 2020 - 2025</span>',
         description:
-          `• Designed the core system architecture for Watch Face Studio (WFF, XSD), including a format validator for compatibility and quality checks.<br />
-           • Developed the Wear OS watch face runtime (loader) with the toolchain and SDK; the Samsung-built runtime was later adopted into the Android platform and integrated into AOSP as an official runtime module.`,
+          `• Created WFF (Android Watch Face Format), an XML-based format defined by the XSD I authored, and built a validator for compatibility and quality checks.<br />
+           • Participated in developing the Watch Face Studio preview rendering pipeline.<br />
+           • Developed the WFF loader as the Wear OS watch face runtime; the Samsung-built runtime was later adopted into the Android platform and integrated into AOSP as an official runtime module.`,
         icon: 'tabler:briefcase',
       },
       {
         title: 'Android Graphics Engineer <br /> <span class="font-normal">Samsung Electronics</span> <br /> <span class="text-sm font-normal">Sep. 2019 - Sep. 2020</span>',
         description:
-          `• Executed system-level graphics optimization for Android devices.<br />
-           • Implemented 'Runtime Gradient Blur' (Patent Grade A) and multi-window blur effects.<br />
-           • Enhanced the stability of the Android Framework graphics layer.`,
+          `• Implemented 'Runtime Gradient Blur' (Patent Grade A) and multi-window blur effects.<br />
+           • Proved window‑independent Android view blur via PoC and report; the methodology was later adopted in Samsung phones by the owning team.`,
         icon: 'tabler:brand-android',
       },
       {
         title: 'Tizen Graphics Engineer <br /> <span class="font-normal">Samsung Electronics</span> <br /> <span class="text-sm font-normal">Jul. 2018 - Sep. 2019</span>',
         description:
           `• Developed and optimized graphics using OpenGL ES and DALi Engine for Tizen wearables.<br />
-           • Implemented key parts of default Galaxy Watch watch faces, including effects such as ActivitySparkles and Raindrop.`,
+           • Participated in the internal experimental project WatchFactory, a DALi-based 3D watchface tool for Tizen-based Samsung watches; it later evolved into Watch Face Studio.`,
         icon: 'tabler:device-watch',
       },
       {
@@ -110,36 +156,32 @@ const metadata = {
     title="Technical Skills"
     subtitle="A comprehensive overview of my technical capabilities."
     columns={3}
+    classes={{ items: { container: 'skills-grid mt-10 max-w-5xl', panel: 'max-w-none w-full' } }}
     items={[
       {
         title: 'Languages',
-        description: 'C++, Java, Kotlin, Python, C#, GLSL',
+        description: 'C++, Java, Kotlin, Python, C#, GLSL, TypeScript, HTML',
         icon: 'tabler:code',
       },
       {
         title: 'Graphics & GPU',
-        description: 'OpenGL ES, Vulkan, Metal, Unity3D, Unreal Engine, Renderdoc, Mali Graphics Debugger',
+        description: 'OpenGL ES, Unity3D, Renderdoc, Mali Graphics Debugger',
         icon: 'tabler:cube',
       },
       {
-        title: 'AI & Data',
+        title: 'AI',
         description: 'Deep Learning, Generative AI, PyTorch, TensorFlow',
         icon: 'tabler:brain',
       },
       {
-        title: 'Platforms',
-        description: 'Android Framework, Wear OS, Tizen, Linux',
+        title: 'Frameworks & Platforms',
+        description: 'Android Framework, Android Wear, React, Electron, Vite',
         icon: 'tabler:device-mobile',
       },
       {
         title: 'Tools',
         description: 'Android Studio, Visual Studio Code, IntelliJ, Blender, Git, CI/CD pipelines',
         icon: 'tabler:tools',
-      },
-      {
-        title: 'Architecture',
-        description: 'System Design, Design Patterns, OOP, Clean Architecture',
-        icon: 'tabler:sitemap',
       },
     ]}
   />
@@ -169,19 +211,39 @@ const metadata = {
   >
   </Content>
 
-  <!-- CallToAction Widget *********** -->
-
-  <CallToAction
-    title="Looking for a detailed PDF?"
-    subtitle="Download my full resume for offline viewing."
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Download Resume',
-        href: '/resume.pdf',
-        target: '_blank',
-        icon: 'tabler:download',
-      },
-    ]}
-  />
 </Layout>
+
+<script is:inline>
+  const syncMetaLogoTheme = () => {
+    const isDark = document.documentElement.classList.contains('dark');
+    document.querySelectorAll('.meta-logo svg').forEach((svg) => {
+      svg.classList.toggle('dark', isDark);
+      svg.classList.toggle('light', !isDark);
+    });
+  };
+
+  syncMetaLogoTheme();
+
+  const observer = new MutationObserver(syncMetaLogoTheme);
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+</script>
+
+<style>
+  @media (min-width: 1024px) {
+    .skills-grid {
+      grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+    }
+
+    .skills-grid > * {
+      grid-column: span 2 / span 2;
+    }
+
+    .skills-grid > *:nth-last-child(2) {
+      grid-column-start: 2;
+    }
+
+    .skills-grid > *:last-child {
+      grid-column-start: 4;
+    }
+  }
+</style>

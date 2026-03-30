@@ -7,7 +7,7 @@ import Content from '~/components/widgets/Content.astro';
 import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 
 const metadata = {
-  title: 'Woohyun Kim | AI & 3D Graphics Engineer',
+  title: 'Woohyun Kim | 3D Graphics & AI Engineer',
   ignoreTitleTemplate: true,
 };
 ---
@@ -15,21 +15,9 @@ const metadata = {
 <Layout metadata={metadata}>
   <!-- Hero Widget ******************* -->
 
-  <Hero
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Download Resume',
-        href: '/resume.pdf',
-        target: '_blank',
-        icon: 'tabler:download',
-      },
-      { text: 'About Me', href: '/about' },
-    ]}
-    image={{ src: '~/assets/images/hero-image.png', alt: 'Woohyun Kim Profile' }}
-  >
+  <Hero>
     <Fragment slot="title">
-      <span class="text-accent dark:text-white highlight">Woohyun Kim</span>
+      <span class="text-black dark:text-black highlight">Woohyun Kim</span>
       <br />
       <span class="text-2xl font-light tracking-wide text-gray-600 dark:text-gray-400">
         Executive Director & Senior Engineer
@@ -38,7 +26,7 @@ const metadata = {
 
     <Fragment slot="subtitle">
       <span class="hidden sm:inline">
-        Specialist in <b>Deep Learning (GenAI)</b> and <b>3D Graphics</b>.
+        Specialist in <b>3D Graphics</b> and <b>Deep Learning (GenAI)</b>.
         <br/>
         Architecting robust systems by bridging mathematical theory with high-performance engineering.
       </span>
@@ -54,10 +42,10 @@ const metadata = {
     subtitle="Combining mathematical precision with creative engineering to build next-generation systems."
     items={[
       {
-        title: 'System Architecture',
+        title: '3D Graphics & Rendering',
         description:
-          'Designing robust, scalable end-to-end systems with a macro-level perspective on performance and stability.',
-        icon: 'tabler:sitemap',
+          'Extensive experience with OpenGL ES, GLSL, and rendering pipelines, from low-level optimizations to high-level creative tools.',
+        icon: 'tabler:cube',
       },
       {
         title: 'Generative AI & DL',
@@ -66,10 +54,10 @@ const metadata = {
         icon: 'tabler:brain',
       },
       {
-        title: '3D Graphics & Rendering',
+        title: 'System Architecture',
         description:
-          'Extensive experience with OpenGL ES, GLSL, and rendering pipelines, from low-level optimizations to high-level creative tools.',
-        icon: 'tabler:cube',
+          'Designing robust, scalable end-to-end systems with a macro-level perspective on performance and stability.',
+        icon: 'tabler:sitemap',
       },
       {
         title: 'Mathematical R&D',
