@@ -11,6 +11,12 @@ import vvBreathFocusingDark from '~/assets/multimedia/vanillavibes/vv_breath_foc
 import vvBreathFocusingLight from '~/assets/multimedia/vanillavibes/vv_breath_focusing_light.mp4';
 import vvScanRevealDark from '~/assets/multimedia/vanillavibes/vv_scan_reveal_dark.mp4';
 import vvScanRevealLight from '~/assets/multimedia/vanillavibes/vv_scan_reveal_light.mp4';
+const baseUrl = import.meta.env.BASE_URL ?? '/';
+const crossBridgePreviewSrc = `${baseUrl}assets/projects/cross-the-bridge/bridge.jpg`;
+const smartVoicePreviewSrc = `${baseUrl}assets/projects/smart-voice/settings.jpg`;
+const friendlyFarmFarmingSrc = `${baseUrl}assets/projects/friendly-farm/farming.jpg`;
+const friendlyFarmDefenseSrc = `${baseUrl}assets/projects/friendly-farm/defense.jpg`;
+const familyStoryPreviewSrc = `${baseUrl}assets/projects/family-story/family-story.jpg`;
 
 const metadata = {
   title: 'Resume - Woohyun Kim',
@@ -23,9 +29,18 @@ const vanillaVibesVideos = [
   { label: 'vv_scan_reveal_dark.mp4', src: vvScanRevealDark },
 ];
 
+const wonderlandVideos = [
+  { label: 'https://www.youtube.com/shorts/_sbea9T3yzc', src: 'https://www.youtube.com/embed/_sbea9T3yzc' },
+  { label: 'https://www.youtube.com/shorts/ofM3ofy1fek', src: 'https://www.youtube.com/embed/ofM3ofy1fek' },
+  { label: 'https://www.youtube.com/shorts/mwvoi2LDb9I', src: 'https://www.youtube.com/embed/mwvoi2LDb9I' },
+  { label: 'https://www.youtube.com/shorts/yu2Zy00WKEA', src: 'https://www.youtube.com/embed/yu2Zy00WKEA' },
+  { label: 'https://www.youtube.com/shorts/H25LeNEQTl8', src: 'https://www.youtube.com/embed/H25LeNEQTl8' },
+];
+
 ---
 
 <Layout metadata={metadata}>
+  <div class="resume-content">
   <!-- Hero Widget ******************* -->
 
   <Hero
@@ -101,7 +116,7 @@ const vanillaVibesVideos = [
       {
         title: 'Software Engineer (Wonderland & AI Effects) <br /> <span class="font-normal">Samsung Electronics</span> <br /> <span class="text-sm font-normal">Mar. 2023 - 2025</span>',
         description:
-          `• Wonderland: Served as a core developer for the "Wallpaper Transition Effects" section of 'Wonderland' (Good Lock).<br />
+          `• <button type="button" class="vv-link text-primary hover:underline font-semibold" data-modal-open="wonderland-modal" aria-haspopup="dialog" aria-controls="wonderland-modal">Wonderland</button>: Served as a core developer for the "Wallpaper Transition Effects" section of 'Wonderland' (Good Lock).<br />
            • <button type="button" class="vv-link text-primary hover:underline font-semibold" data-modal-open="vanillavibes-modal" aria-haspopup="dialog" aria-controls="vanillavibes-modal">VanillaVibes</button>: Built a shared RenderEffect-based AI visual effects rendering library for showcasing AI features across Galaxy phones, and drove its official integration starting with One UI 7.0; it has continued to evolve in active production ever since.<br />
            • Internal Graphic Libs: Optimized internal graphics library components, including Transparent Video Player and Skottie View, to improve rendering performance and runtime stability.`,
         icon: 'tabler:briefcase',
@@ -109,8 +124,8 @@ const vanillaVibesVideos = [
       {
         title: 'Platform Software Engineer (Watch Face Studio) <br /> <span class="font-normal">Samsung Electronics</span> <br /> <span class="text-sm font-normal">Sep. 2020 - 2025</span>',
         description:
-          `• Created WFF (Android Watch Face Format), an XML-based format defined by the XSD I authored, and built a validator for compatibility and quality checks.<br />
-           • Participated in developing the Watch Face Studio preview rendering pipeline.<br />
+          `• Created <a class="resume-link" href="https://developer.android.com/training/wearables/wff" target="_blank" rel="noopener">WFF (Android Watch Face Format)</a>, an XML-based format defined by the <a class="resume-link" href="https://github.com/google/watchface/commit/bbc2def58c94b18c4deec12d079b2792c2a33fef" target="_blank" rel="noopener">XSD I authored</a> (publicly mirrored from my Samsung work to avoid exposing internal Git history), and built a validator for compatibility and quality checks.<br />
+           • Participated in developing the <a class="resume-link" href="https://developer.samsung.com/watch-face-studio/overview.html" target="_blank" rel="noopener">Watch Face Studio</a> preview rendering pipeline.<br />
            • Developed the WFF loader as the Wear OS watch face runtime; the Samsung-built runtime was later adopted into the Android platform and integrated into AOSP as an official runtime module.`,
         icon: 'tabler:briefcase',
       },
@@ -118,13 +133,14 @@ const vanillaVibesVideos = [
         title: 'Android Graphics Engineer <br /> <span class="font-normal">Samsung Electronics</span> <br /> <span class="text-sm font-normal">Sep. 2019 - Sep. 2020</span>',
         description:
           `• Implemented 'Runtime Gradient Blur' (Patent Grade A) and multi-window blur effects.<br />
-           • Proved window‑independent Android view blur via PoC and report; the methodology was later adopted in Samsung phones by the owning team.`,
+           • Proved window‑independent Android view blur via PoC and report; the methodology was later adopted in Samsung phones by the owning team.<br />
+           • Implemented <a class="resume-link" href="https://youtu.be/ZGL_8u3thSU?t=14" target="_blank" rel="noopener">Weather‑Raindrop</a> rendering for a Samsung in‑house watch face, based on reverse‑engineering the open‑source <a class="resume-link" href="https://tympanus.net/Development/RainEffect/" target="_blank" rel="noopener">RainEffect</a>.`,
         icon: 'tabler:brand-android',
       },
       {
         title: 'Tizen Graphics Engineer <br /> <span class="font-normal">Samsung Electronics</span> <br /> <span class="text-sm font-normal">Jul. 2018 - Sep. 2019</span>',
         description:
-          `• Developed and optimized graphics using OpenGL ES and DALi Engine for Tizen wearables.<br />
+          `• Implemented <a class="resume-link" href="https://www.youtube.com/watch?v=B_CbUWJJ4cw" target="_blank" rel="noopener">Activity Sparkles</a> rendering for a Samsung in‑house watch face.<br />
            • Participated in the internal experimental project WatchFactory, a DALi-based 3D watchface tool for Tizen-based Samsung watches; it later evolved into Watch Face Studio.`,
         icon: 'tabler:device-watch',
       },
@@ -139,8 +155,12 @@ const vanillaVibesVideos = [
       {
         title: 'Samsung Software Membership <br /> <span class="text-sm font-normal">Jan. 2014 - Jul. 2015</span>',
         description:
-          `• Regular Member (24-1th) & Education Team Leader.<br />
-           • Conducted seminars on 3D Programming (Vector, Matrix, Quaternion) and Algorithms.`,
+          `• Regular member, 24-1th.<br />
+           • Education Team Leader (Sep. 2014 ~ Mar. 2015).<br />
+           • Seminar: Vector, Matrix and Quaternion for 3D Programming — <button type="button" class="vv-link text-primary hover:underline font-semibold" data-modal-open="seminar-3d-math-modal" aria-haspopup="dialog" aria-controls="seminar-3d-math-modal">Preview</button>.<br />
+           • Seminar: OpenMP and MPI for Beginners — <button type="button" class="vv-link text-primary hover:underline font-semibold" data-modal-open="seminar-openmp-modal" aria-haspopup="dialog" aria-controls="seminar-openmp-modal">Preview</button>.<br />
+           • <button type="button" class="vv-link text-primary hover:underline font-semibold" data-modal-open="crossbridge-modal" aria-haspopup="dialog" aria-controls="crossbridge-modal">Cross the Bridge</button>: 3D game engine + bridge simulation; project lead and physics engine (RPEngine) developer.<br />
+           • <button type="button" class="vv-link text-primary hover:underline font-semibold" data-modal-open="smartvoice-modal" aria-haspopup="dialog" aria-controls="smartvoice-modal">SmartVoice</button>: Voice‑based Android system service using third‑party collective intelligence, with related AOSP platform changes.`,
         icon: 'tabler:school',
       },
     ]}
@@ -155,6 +175,13 @@ const vanillaVibesVideos = [
     items={[
       {
         title: 'Bachelor of Science in Software Engineering & Applied Mathematics <br /> <span class="font-normal">Kumoh National Institute of Technology</span> <br /> <span class="text-sm font-normal">2008 - 2015</span>',
+        icon: 'tabler:school',
+      },
+      {
+        title: 'Student Projects <br /> <span class="text-sm font-normal">Kumoh National Institute of Technology</span>',
+        description:
+          `• <button type="button" class="vv-link text-primary hover:underline font-semibold" data-modal-open="friendly-farm-modal" aria-haspopup="dialog" aria-controls="friendly-farm-modal">Friendly Farm</button>: Social network game (SNG) with farming simulation and defense gameplay; project lead.<br />
+           • <button type="button" class="vv-link text-primary hover:underline font-semibold" data-modal-open="family-story-modal" aria-haspopup="dialog" aria-controls="family-story-modal">Family Story</button>: Family-focused SNS application built as an Android hybrid web app; project lead.`,
         icon: 'tabler:school',
       },
     ]}
@@ -197,11 +224,16 @@ const vanillaVibesVideos = [
     ]}
   />
 
-  <!-- Awards Widget ****************** -->
+  <!-- Journals & Awards Widget ****************** -->
 
   <Content
-    title="Honors & Awards"
+    title="Journals & Awards"
     items={[
+      {
+        title: 'Journal Publication',
+        description:
+          'Seongsoo Choi, <strong>Woohyun Kim</strong>, and Jongho Kim, “Compression of Hamiltonian matrix: Application to spin-1/2 Heisenberg square lattice,” AIP Advances (2016). <a class="resume-link" href="http://aip.scitation.org/doi/pdf/10.1063/1.4963834" target="_blank" rel="noopener">PDF</a>.',
+      },
       {
         title: 'K-Hackathon 3: Grand Award (Minister Award)',
         description: 'Received the highest honor for "Team Globell" (Web-based global free internet phone service).',
@@ -224,17 +256,20 @@ const vanillaVibesVideos = [
 
   <!-- VanillaVibes Modal ****************** -->
 
-  <div id="vanillavibes-modal" class="vv-modal fixed inset-0 z-50 hidden" aria-hidden="true" data-modal>
-    <div class="vv-backdrop absolute inset-0 z-0 bg-black/40 backdrop-blur-sm" data-modal-close></div>
+  <div id="vanillavibes-modal" class="media-modal fixed inset-0 z-[9999] hidden" aria-hidden="true" data-modal>
+    <div class="media-backdrop absolute inset-0 z-0 bg-black/40 backdrop-blur-sm" data-modal-close></div>
     <div class="relative mx-auto my-8 max-w-5xl px-4 sm:px-6">
       <div
-        class="vv-panel relative z-10 rounded-xl bg-white dark:bg-slate-900 shadow-xl border border-black/10 dark:border-white/10 pointer-events-auto"
+        class="modal-panel relative z-10 rounded-xl bg-white dark:bg-slate-900 shadow-xl border border-black/10 dark:border-white/10 pointer-events-auto"
         role="dialog"
         aria-modal="true"
         aria-label="VanillaVibes videos"
       >
         <div class="flex items-center justify-between px-4 sm:px-6 py-3 border-b border-black/10 dark:border-white/10">
-          <div class="text-sm font-semibold text-gray-800 dark:text-slate-100">VanillaVibes</div>
+          <div>
+            <div class="text-sm font-semibold text-gray-800 dark:text-slate-100">VanillaVibes</div>
+            <div class="text-xs text-gray-500 dark:text-slate-400 hidden"></div>
+          </div>
           <button
             type="button"
             class="text-sm text-gray-500 hover:text-gray-800 dark:text-slate-400 dark:hover:text-slate-200"
@@ -244,10 +279,10 @@ const vanillaVibesVideos = [
           </button>
         </div>
         <div class="grid gap-4 sm:gap-6 p-4 sm:p-6 md:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
-          <div class="vv-player-card rounded-lg bg-black/5 dark:bg-black/30 p-2 sm:p-3">
+          <div class="media-player-card rounded-lg bg-black/5 dark:bg-black/30 p-2 sm:p-3">
             <video
               id="vanillavibes-player"
-              class="vv-player w-full max-w-full rounded-md bg-black object-contain"
+              class="media-player w-full max-w-full rounded-md bg-black object-contain"
               controls
               preload="metadata"
             ></video>
@@ -260,7 +295,7 @@ const vanillaVibesVideos = [
                   <li>
                     <button
                       type="button"
-                      class={`vv-item w-full text-left rounded-md px-3 py-2 text-sm border border-black/10 dark:border-white/10 ${
+                      class={`media-item w-full text-left rounded-md px-3 py-2 text-sm border border-black/10 dark:border-white/10 ${
                         index === 0 ? 'is-active' : ''
                       }`}
                       data-vv-src={video.src}
@@ -277,6 +312,464 @@ const vanillaVibesVideos = [
     </div>
   </div>
 
+  <!-- Wonderland Modal ****************** -->
+
+  <div id="wonderland-modal" class="media-modal fixed inset-0 z-[9999] hidden" aria-hidden="true" data-modal>
+    <div class="media-backdrop absolute inset-0 z-0 bg-black/40 backdrop-blur-sm" data-modal-close></div>
+    <div class="relative mx-auto my-8 max-w-5xl px-4 sm:px-6">
+      <div
+        class="modal-panel relative z-10 rounded-xl bg-white dark:bg-slate-900 shadow-xl border border-black/10 dark:border-white/10 pointer-events-auto"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Wonderland videos"
+      >
+        <div class="flex items-center justify-between px-4 sm:px-6 py-3 border-b border-black/10 dark:border-white/10">
+          <div>
+            <div class="text-sm font-semibold text-gray-800 dark:text-slate-100">Wonderland</div>
+            <div class="text-xs text-gray-500 dark:text-slate-400">
+              To see more videos, search for Samsung Galaxy Wonderland on YouTube.
+            </div>
+          </div>
+          <button
+            type="button"
+            class="text-sm text-gray-500 hover:text-gray-800 dark:text-slate-400 dark:hover:text-slate-200"
+            data-modal-close
+          >
+            Close
+          </button>
+        </div>
+        <div class="grid gap-4 sm:gap-6 p-4 sm:p-6 md:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
+          <div class="media-player-card rounded-lg bg-black/5 dark:bg-black/30 p-2 sm:p-3">
+            <iframe
+              id="wonderland-player"
+              class="media-player w-full max-w-full rounded-md bg-black"
+              src=""
+              title="Wonderland YouTube player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div>
+            <div class="text-xs uppercase tracking-wide text-gray-500 dark:text-slate-400 mb-2">Clips</div>
+            <ul class="space-y-2">
+              {
+                wonderlandVideos.map((video, index) => (
+                  <li>
+                    <button
+                      type="button"
+                      class={`media-item w-full text-left rounded-md px-3 py-2 text-sm border border-black/10 dark:border-white/10 break-all ${
+                        index === 0 ? 'is-active' : ''
+                      }`}
+                      data-ww-src={video.src}
+                    >
+                      {video.label}
+                    </button>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cross the Bridge Modal ****************** -->
+
+  <div id="crossbridge-modal" class="media-modal fixed inset-0 z-[9999] hidden" aria-hidden="true" data-modal>
+    <div class="media-backdrop absolute inset-0 z-0 bg-black/40 backdrop-blur-sm" data-modal-close></div>
+    <div class="relative mx-auto my-8 max-w-5xl px-4 sm:px-6">
+      <div
+        class="modal-panel relative z-10 rounded-xl bg-white dark:bg-slate-900 shadow-xl border border-black/10 dark:border-white/10 pointer-events-auto"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Cross the Bridge"
+      >
+        <div class="flex items-center justify-between px-4 sm:px-6 py-3 border-b border-black/10 dark:border-white/10">
+          <div>
+            <div class="text-sm font-semibold text-gray-800 dark:text-slate-100">Cross the Bridge</div>
+            <div class="text-xs text-gray-500 dark:text-slate-400">
+              3D game engine + bridge simulation; project lead and physics engine (RPEngine) developer.
+            </div>
+          </div>
+          <button
+            type="button"
+            class="text-sm text-gray-500 hover:text-gray-800 dark:text-slate-400 dark:hover:text-slate-200"
+            data-modal-close
+          >
+            Close
+          </button>
+        </div>
+        <div class="grid gap-4 sm:gap-6 p-4 sm:p-6 md:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
+          <div class="media-player-card rounded-lg bg-black/5 dark:bg-black/30 p-2 sm:p-3">
+            <iframe
+              id="crossbridge-player"
+              class="media-player w-full max-w-full rounded-md bg-black"
+              src=""
+              title="Cross the Bridge YouTube player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+            <img
+              id="crossbridge-thumb"
+              src={crossBridgePreviewSrc}
+              alt="Cross the Bridge preview"
+              class="media-thumb hidden w-full rounded-md object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="space-y-3">
+            <div class="text-xs uppercase tracking-wide text-gray-500 dark:text-slate-400">Resources</div>
+            <button
+              type="button"
+              class="media-item w-full text-left rounded-md px-3 py-2 text-sm border border-black/10 dark:border-white/10 inline-block"
+              data-cb-show="video"
+            >
+              YouTube
+            </button>
+            <button
+              type="button"
+              class="media-item w-full text-left rounded-md px-3 py-2 text-sm border border-black/10 dark:border-white/10 inline-block"
+              data-cb-show="thumb"
+            >
+              Thumbnail
+            </button>
+            <a
+              class="media-item w-full text-left rounded-md px-3 py-2 text-sm border border-black/10 dark:border-white/10 inline-block"
+              href="https://github.com/artrointel/RPEngine"
+              target="_blank"
+              rel="noopener"
+            >
+              RPEngine
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SmartVoice Modal ****************** -->
+
+  <div id="smartvoice-modal" class="media-modal fixed inset-0 z-[9999] hidden" aria-hidden="true" data-modal>
+    <div class="media-backdrop absolute inset-0 z-0 bg-black/40 backdrop-blur-sm" data-modal-close></div>
+    <div class="relative mx-auto my-8 max-w-5xl px-4 sm:px-6">
+      <div
+        class="modal-panel relative z-10 rounded-xl bg-white dark:bg-slate-900 shadow-xl border border-black/10 dark:border-white/10 pointer-events-auto"
+        role="dialog"
+        aria-modal="true"
+        aria-label="SmartVoice"
+      >
+        <div class="flex items-center justify-between px-4 sm:px-6 py-3 border-b border-black/10 dark:border-white/10">
+          <div>
+            <div class="text-sm font-semibold text-gray-800 dark:text-slate-100">SmartVoice</div>
+            <div class="text-xs text-gray-500 dark:text-slate-400">
+              Voice‑based Android system service using third‑party collective intelligence, with related AOSP platform changes.
+            </div>
+          </div>
+          <button
+            type="button"
+            class="text-sm text-gray-500 hover:text-gray-800 dark:text-slate-400 dark:hover:text-slate-200"
+            data-modal-close
+          >
+            Close
+          </button>
+        </div>
+        <div class="grid gap-4 sm:gap-6 p-4 sm:p-6 md:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
+          <div class="media-player-card rounded-lg bg-black/5 dark:bg-black/30 p-2 sm:p-3">
+            <iframe
+              id="smartvoice-player"
+              class="media-player w-full max-w-full rounded-md bg-black"
+              src=""
+              title="SmartVoice YouTube player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+            <img
+              id="smartvoice-thumb"
+              src={smartVoicePreviewSrc}
+              alt="SmartVoice preview"
+              class="media-thumb hidden w-full rounded-md object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="space-y-3">
+            <div class="text-xs uppercase tracking-wide text-gray-500 dark:text-slate-400">Resources</div>
+            <button
+              type="button"
+              class="media-item w-full text-left rounded-md px-3 py-2 text-sm border border-black/10 dark:border-white/10 inline-block"
+              data-sv-show="video"
+            >
+              YouTube
+            </button>
+            <button
+              type="button"
+              class="media-item w-full text-left rounded-md px-3 py-2 text-sm border border-black/10 dark:border-white/10 inline-block"
+              data-sv-show="thumb"
+            >
+              Thumbnail
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Friendly Farm Modal ****************** -->
+
+  <div id="friendly-farm-modal" class="media-modal fixed inset-0 z-[9999] hidden" aria-hidden="true" data-modal>
+    <div class="media-backdrop absolute inset-0 z-0 bg-black/40 backdrop-blur-sm" data-modal-close></div>
+    <div class="relative mx-auto my-8 max-w-5xl px-4 sm:px-6">
+      <div
+        class="modal-panel relative z-10 rounded-xl bg-white dark:bg-slate-900 shadow-xl border border-black/10 dark:border-white/10 pointer-events-auto"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Friendly Farm"
+      >
+        <div class="flex items-center justify-between px-4 sm:px-6 py-3 border-b border-black/10 dark:border-white/10">
+          <div>
+            <div class="text-sm font-semibold text-gray-800 dark:text-slate-100">Friendly Farm</div>
+            <div class="text-xs text-gray-500 dark:text-slate-400">
+              Social network game (SNG) with farming simulation and defense gameplay; project lead.
+            </div>
+          </div>
+          <button
+            type="button"
+            class="text-sm text-gray-500 hover:text-gray-800 dark:text-slate-400 dark:hover:text-slate-200"
+            data-modal-close
+          >
+            Close
+          </button>
+        </div>
+        <div class="grid gap-4 sm:gap-6 p-4 sm:p-6 md:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
+          <div class="media-player-card rounded-lg bg-black/5 dark:bg-black/30 p-2 sm:p-3">
+            <iframe
+              id="friendly-farm-player"
+              class="media-player w-full max-w-full rounded-md bg-black"
+              src=""
+              title="Friendly Farm YouTube player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+            <img
+              id="friendly-farm-thumb-farming"
+              src={friendlyFarmFarmingSrc}
+              alt="Friendly Farm farming preview"
+              class="media-thumb hidden w-full rounded-md object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+            <img
+              id="friendly-farm-thumb-defense"
+              src={friendlyFarmDefenseSrc}
+              alt="Friendly Farm defense preview"
+              class="media-thumb hidden w-full rounded-md object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="space-y-3">
+            <div class="text-xs uppercase tracking-wide text-gray-500 dark:text-slate-400">Resources</div>
+            <button
+              type="button"
+              class="media-item w-full text-left rounded-md px-3 py-2 text-sm border border-black/10 dark:border-white/10 inline-block"
+              data-ff-show="video"
+            >
+              YouTube
+            </button>
+            <button
+              type="button"
+              class="media-item w-full text-left rounded-md px-3 py-2 text-sm border border-black/10 dark:border-white/10 inline-block"
+              data-ff-show="farming"
+            >
+              Thumbnail: Farming
+            </button>
+            <button
+              type="button"
+              class="media-item w-full text-left rounded-md px-3 py-2 text-sm border border-black/10 dark:border-white/10 inline-block"
+              data-ff-show="defense"
+            >
+              Thumbnail: Defense
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Family Story Modal ****************** -->
+
+  <div id="family-story-modal" class="media-modal fixed inset-0 z-[9999] hidden" aria-hidden="true" data-modal>
+    <div class="media-backdrop absolute inset-0 z-0 bg-black/40 backdrop-blur-sm" data-modal-close></div>
+    <div class="relative mx-auto my-8 max-w-5xl px-4 sm:px-6">
+      <div
+        class="modal-panel relative z-10 rounded-xl bg-white dark:bg-slate-900 shadow-xl border border-black/10 dark:border-white/10 pointer-events-auto"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Family Story"
+      >
+        <div class="flex items-center justify-between px-4 sm:px-6 py-3 border-b border-black/10 dark:border-white/10">
+          <div>
+            <div class="text-sm font-semibold text-gray-800 dark:text-slate-100">Family Story</div>
+            <div class="text-xs text-gray-500 dark:text-slate-400">
+              Family-focused SNS application built as an Android hybrid web app; project lead.
+            </div>
+          </div>
+          <button
+            type="button"
+            class="text-sm text-gray-500 hover:text-gray-800 dark:text-slate-400 dark:hover:text-slate-200"
+            data-modal-close
+          >
+            Close
+          </button>
+        </div>
+        <div class="grid gap-4 sm:gap-6 p-4 sm:p-6 md:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
+          <div class="media-player-card rounded-lg bg-black/5 dark:bg-black/30 p-2 sm:p-3">
+            <img
+              id="family-story-thumb"
+              src={familyStoryPreviewSrc}
+              alt="Family Story preview"
+              class="media-thumb w-full rounded-md object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="space-y-3">
+            <div class="text-xs uppercase tracking-wide text-gray-500 dark:text-slate-400">Resources</div>
+            <a
+              class="media-item w-full text-left rounded-md px-3 py-2 text-sm border border-black/10 dark:border-white/10 inline-block"
+              href="https://artrointel.github.io/assets/projects/family-story/docs.zip"
+              target="_blank"
+              rel="noopener"
+            >
+              Doc
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Seminar: 3D Math Modal ****************** -->
+
+  <div id="seminar-3d-math-modal" class="media-modal fixed inset-0 z-[9999] hidden" aria-hidden="true" data-modal>
+    <div class="media-backdrop absolute inset-0 z-0 bg-black/40 backdrop-blur-sm" data-modal-close></div>
+    <div class="relative mx-auto my-8 max-w-5xl px-4 sm:px-6">
+      <div
+        class="modal-panel relative z-10 rounded-xl bg-white dark:bg-slate-900 shadow-xl border border-black/10 dark:border-white/10 pointer-events-auto"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Vector, Matrix and Quaternion for 3D Programming"
+      >
+        <div class="flex items-center justify-between px-4 sm:px-6 py-3 border-b border-black/10 dark:border-white/10">
+          <div>
+            <div class="text-sm font-semibold text-gray-800 dark:text-slate-100">
+              Vector, Matrix and Quaternion for 3D Programming
+            </div>
+            <div class="text-xs text-gray-500 dark:text-slate-400">Seminar deck preview</div>
+          </div>
+          <button
+            type="button"
+            class="text-sm text-gray-500 hover:text-gray-800 dark:text-slate-400 dark:hover:text-slate-200"
+            data-modal-close
+          >
+            Close
+          </button>
+        </div>
+        <div class="grid gap-4 sm:gap-6 p-4 sm:p-6 md:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
+          <div class="media-player-card rounded-lg bg-black/5 dark:bg-black/30 p-2 sm:p-3">
+            <iframe
+              id="seminar-3d-math-player"
+              class="media-player media-player--slides w-full max-w-full rounded-md bg-white"
+              src=""
+              title="3D math seminar slides"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="space-y-3">
+            <div class="text-xs uppercase tracking-wide text-gray-500 dark:text-slate-400">Resources</div>
+            <a
+              class="media-item w-full text-left rounded-md px-3 py-2 text-sm border border-black/10 dark:border-white/10 inline-block"
+              href="https://www.slideshare.net/WoohyunKim16/3d-85975448"
+              target="_blank"
+              rel="noopener"
+            >
+              Slides
+            </a>
+            <a
+              class="media-item w-full text-left rounded-md px-3 py-2 text-sm border border-black/10 dark:border-white/10 inline-block"
+              href="https://www.slideshare.net/WoohyunKim16"
+              target="_blank"
+              rel="noopener"
+            >
+              SlideShare Profile
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Seminar: OpenMP/MPI Modal ****************** -->
+
+  <div id="seminar-openmp-modal" class="media-modal fixed inset-0 z-[9999] hidden" aria-hidden="true" data-modal>
+    <div class="media-backdrop absolute inset-0 z-0 bg-black/40 backdrop-blur-sm" data-modal-close></div>
+    <div class="relative mx-auto my-8 max-w-5xl px-4 sm:px-6">
+      <div
+        class="modal-panel relative z-10 rounded-xl bg-white dark:bg-slate-900 shadow-xl border border-black/10 dark:border-white/10 pointer-events-auto"
+        role="dialog"
+        aria-modal="true"
+        aria-label="OpenMP and MPI for Beginners"
+      >
+        <div class="flex items-center justify-between px-4 sm:px-6 py-3 border-b border-black/10 dark:border-white/10">
+          <div>
+            <div class="text-sm font-semibold text-gray-800 dark:text-slate-100">OpenMP and MPI for Beginners</div>
+            <div class="text-xs text-gray-500 dark:text-slate-400">Seminar deck preview</div>
+          </div>
+          <button
+            type="button"
+            class="text-sm text-gray-500 hover:text-gray-800 dark:text-slate-400 dark:hover:text-slate-200"
+            data-modal-close
+          >
+            Close
+          </button>
+        </div>
+        <div class="grid gap-4 sm:gap-6 p-4 sm:p-6 md:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
+          <div class="media-player-card rounded-lg bg-black/5 dark:bg-black/30 p-2 sm:p-3">
+            <iframe
+              id="seminar-openmp-player"
+              class="media-player media-player--slides w-full max-w-full rounded-md bg-white"
+              src=""
+              title="OpenMP and MPI seminar slides"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="space-y-3">
+            <div class="text-xs uppercase tracking-wide text-gray-500 dark:text-slate-400">Resources</div>
+            <a
+              class="media-item w-full text-left rounded-md px-3 py-2 text-sm border border-black/10 dark:border-white/10 inline-block"
+              href="https://www.slideshare.net/WoohyunKim16/openmp-for-beginners"
+              target="_blank"
+              rel="noopener"
+            >
+              Slides
+            </a>
+            <a
+              class="media-item w-full text-left rounded-md px-3 py-2 text-sm border border-black/10 dark:border-white/10 inline-block"
+              href="https://www.slideshare.net/WoohyunKim16"
+              target="_blank"
+              rel="noopener"
+            >
+              SlideShare Profile
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
 </Layout>
 
 <script is:inline>
@@ -341,6 +834,215 @@ const vanillaVibesVideos = [
 
   initVanillaVibesModal();
   document.addEventListener('astro:after-swap', initVanillaVibesModal);
+
+  const initWonderlandModal = () => {
+    const modal = document.getElementById('wonderland-modal');
+    if (!modal || modal.dataset.wwBound === 'true') return;
+    const player = modal.querySelector('#wonderland-player');
+    if (!player) return;
+
+    modal.dataset.wwBound = 'true';
+
+    const getButtons = () => Array.from(modal.querySelectorAll('[data-ww-src]'));
+
+    const setActiveVideo = (button) => {
+      if (!button || !player) return;
+      const buttons = getButtons();
+      buttons.forEach((btn) => btn.classList.remove('is-active'));
+      button.classList.add('is-active');
+      const src = button.getAttribute('data-ww-src');
+      if (src) {
+        player.setAttribute('src', `${src}?rel=0&modestbranding=1`);
+      }
+    };
+
+    const resetPlayer = () => {
+      if (!player) return;
+      player.setAttribute('src', '');
+    };
+
+    modal.addEventListener('modal:open', () => {
+      const buttons = getButtons();
+      setActiveVideo(buttons[0]);
+    });
+    modal.addEventListener('modal:close', resetPlayer);
+
+    modal.addEventListener('click', (event) => {
+      const button = event.target.closest('[data-ww-src]');
+      if (button) {
+        setActiveVideo(button);
+      }
+    });
+  };
+
+  initWonderlandModal();
+  document.addEventListener('astro:after-swap', initWonderlandModal);
+
+  const initSimpleIframeModal = (modalId, embedSrc) => {
+    const modal = document.getElementById(modalId);
+    if (!modal || modal.dataset.simpleBound === 'true') return;
+    const player = modal.querySelector('iframe');
+    if (!player) return;
+
+    modal.dataset.simpleBound = 'true';
+
+    const resetPlayer = () => {
+      player.setAttribute('src', '');
+    };
+
+    modal.addEventListener('modal:open', () => {
+      player.setAttribute('src', embedSrc);
+    });
+    modal.addEventListener('modal:close', resetPlayer);
+  };
+
+  const initCrossBridgeModal = () => {
+    const modal = document.getElementById('crossbridge-modal');
+    if (!modal || modal.dataset.cbBound === 'true') return;
+    const player = modal.querySelector('#crossbridge-player');
+    const thumb = modal.querySelector('#crossbridge-thumb');
+    if (!player || !thumb) return;
+
+    modal.dataset.cbBound = 'true';
+
+    const showVideo = () => {
+      thumb.classList.add('hidden');
+      player.classList.remove('hidden');
+      player.setAttribute(
+        'src',
+        'https://www.youtube.com/embed/j9WeBjJaUlE?list=PLFvdltGhnoAOEi8856S_SpO5De_5REK_o&rel=0&modestbranding=1'
+      );
+    };
+
+    const showThumb = () => {
+      player.setAttribute('src', '');
+      player.classList.add('hidden');
+      thumb.classList.remove('hidden');
+    };
+
+    modal.addEventListener('modal:open', showVideo);
+    modal.addEventListener('modal:close', showThumb);
+
+    modal.addEventListener('click', (event) => {
+      if (event.target.closest('[data-cb-show="video"]')) {
+        showVideo();
+      } else if (event.target.closest('[data-cb-show="thumb"]')) {
+        showThumb();
+      }
+    });
+  };
+
+  const initSmartVoiceModal = () => {
+    const modal = document.getElementById('smartvoice-modal');
+    if (!modal || modal.dataset.svBound === 'true') return;
+    const player = modal.querySelector('#smartvoice-player');
+    const thumb = modal.querySelector('#smartvoice-thumb');
+    if (!player || !thumb) return;
+
+    modal.dataset.svBound = 'true';
+
+    const showVideo = () => {
+      thumb.classList.add('hidden');
+      player.classList.remove('hidden');
+      player.setAttribute(
+        'src',
+        'https://www.youtube.com/embed/videoseries?list=PLFvdltGhnoANUmPkSl9IVSECUSKcswDoK&rel=0&modestbranding=1'
+      );
+    };
+
+    const showThumb = () => {
+      player.setAttribute('src', '');
+      player.classList.add('hidden');
+      thumb.classList.remove('hidden');
+    };
+
+    modal.addEventListener('modal:open', showVideo);
+    modal.addEventListener('modal:close', showThumb);
+
+    modal.addEventListener('click', (event) => {
+      if (event.target.closest('[data-sv-show="video"]')) {
+        showVideo();
+      } else if (event.target.closest('[data-sv-show="thumb"]')) {
+        showThumb();
+      }
+    });
+  };
+
+  const initFriendlyFarmModal = () => {
+    const modal = document.getElementById('friendly-farm-modal');
+    if (!modal || modal.dataset.ffBound === 'true') return;
+    const player = modal.querySelector('#friendly-farm-player');
+    const farmingThumb = modal.querySelector('#friendly-farm-thumb-farming');
+    const defenseThumb = modal.querySelector('#friendly-farm-thumb-defense');
+    if (!player || !farmingThumb || !defenseThumb) return;
+
+    modal.dataset.ffBound = 'true';
+
+    const hideThumbs = () => {
+      farmingThumb.classList.add('hidden');
+      defenseThumb.classList.add('hidden');
+    };
+
+    const showVideo = () => {
+      hideThumbs();
+      player.classList.remove('hidden');
+      player.setAttribute(
+        'src',
+        'https://www.youtube.com/embed/8CI9qfpottU?list=PLFvdltGhnoAPDOS2YjjSNd1FlrL-JpJZt&rel=0&modestbranding=1'
+      );
+    };
+
+    const showThumb = (variant) => {
+      player.setAttribute('src', '');
+      player.classList.add('hidden');
+      hideThumbs();
+      if (variant === 'defense') {
+        defenseThumb.classList.remove('hidden');
+      } else {
+        farmingThumb.classList.remove('hidden');
+      }
+    };
+
+    modal.addEventListener('modal:open', showVideo);
+    modal.addEventListener('modal:close', () => showThumb('farming'));
+
+    modal.addEventListener('click', (event) => {
+      const button = event.target.closest('[data-ff-show]');
+      if (!button) return;
+      const target = button.getAttribute('data-ff-show');
+      if (target === 'video') {
+        showVideo();
+      } else {
+        showThumb(target);
+      }
+    });
+  };
+
+  initCrossBridgeModal();
+  initSmartVoiceModal();
+  initFriendlyFarmModal();
+  initSimpleIframeModal(
+    'seminar-3d-math-modal',
+    'https://www.slideshare.net/slideshow/embed_code/key/j8r1JUnNZet8E0'
+  );
+  initSimpleIframeModal(
+    'seminar-openmp-modal',
+    'https://www.slideshare.net/slideshow/embed_code/key/b8E8s3PsQjwKqr'
+  );
+
+  document.addEventListener('astro:after-swap', () => {
+    initCrossBridgeModal();
+    initSmartVoiceModal();
+    initFriendlyFarmModal();
+    initSimpleIframeModal(
+      'seminar-3d-math-modal',
+      'https://www.slideshare.net/slideshow/embed_code/key/j8r1JUnNZet8E0'
+    );
+    initSimpleIframeModal(
+      'seminar-openmp-modal',
+      'https://www.slideshare.net/slideshow/embed_code/key/b8E8s3PsQjwKqr'
+    );
+  });
 </script>
 
 <style>
@@ -362,39 +1064,39 @@ const vanillaVibesVideos = [
     }
   }
 
-  .vv-modal {
+  .media-modal {
     pointer-events: auto;
   }
 
-  .vv-panel,
-  .vv-panel * {
+  .modal-panel,
+  .modal-panel * {
     pointer-events: auto;
   }
 
-  .vv-modal:not(.hidden) {
+  .media-modal:not(.hidden) {
     display: flex;
     align-items: center;
   }
 
-  .vv-item {
+  .media-item {
     color: #1f2937;
     background: #ffffff;
     transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
   }
 
-  .vv-item.is-active {
+  .media-item.is-active {
     background: #eff6ff;
     border-color: #93c5fd;
     color: #1d4ed8;
   }
 
-  .vv-player-card {
+  .media-player-card {
     min-height: 240px;
     display: grid;
     place-items: center;
   }
 
-  .vv-player {
+  .media-player {
     width: 100%;
     max-width: 100%;
     height: auto;
@@ -402,14 +1104,45 @@ const vanillaVibesVideos = [
     aspect-ratio: 16 / 9;
   }
 
-  :global(html.dark) .vv-item {
+  .media-player--slides {
+    aspect-ratio: 4 / 3;
+    max-height: 480px;
+  }
+
+  .media-thumb {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    max-height: 420px;
+    object-fit: cover;
+  }
+
+  :global(html.dark) .media-item {
     background: #0f172a;
     color: #e2e8f0;
   }
 
-  :global(html.dark) .vv-item.is-active {
+  :global(html.dark) .media-item.is-active {
     background: #0b1220;
     border-color: #1d4ed8;
     color: #bfdbfe;
+  }
+
+  :global(.resume-content a),
+  :global(.resume-content .resume-link) {
+    color: #2563eb !important;
+    font-weight: 600 !important;
+  }
+
+  :global(.resume-content a:hover),
+  :global(.resume-content .resume-link:hover) {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  :global(html.dark) .resume-content a,
+  :global(html.dark) .resume-content .resume-link {
+    color: #60a5fa !important;
   }
 </style>
