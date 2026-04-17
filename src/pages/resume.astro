@@ -63,9 +63,9 @@ const wonderlandVideos = [
       <div class="flex flex-wrap justify-center items-end gap-8 sm:gap-12">
         <div class="flex flex-col items-center gap-2">
           <a
-            href="https://www.samsung.com/sec/about-us/brand-identity/logo/"
+            href="https://www.samsung.com/"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             class="block"
             aria-label="Samsung Electronics logo"
           >
@@ -90,10 +90,18 @@ const wonderlandVideos = [
         </div>
 
         <div class="flex flex-col items-center gap-2">
-          <div class="h-12 sm:h-14 w-16 sm:w-20 flex items-center justify-center">
-            <span class="sr-only">MetaIntelligence</span>
-            <div class="meta-logo w-16 sm:w-20 [&>svg]:w-full [&>svg]:h-auto" set:html={metaLogoRaw} />
-          </div>
+          <a
+            href="https://metaintelligence.github.io/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block"
+            aria-label="MetaIntelligence logo"
+          >
+            <div class="h-12 sm:h-14 w-16 sm:w-20 flex items-center justify-center">
+              <span class="sr-only">MetaIntelligence</span>
+              <div class="meta-logo w-16 sm:w-20 [&>svg]:w-full [&>svg]:h-auto" set:html={metaLogoRaw} />
+            </div>
+          </a>
           <span class="text-xs text-muted">2025 - Present</span>
         </div>
       </div>
@@ -111,8 +119,8 @@ const wonderlandVideos = [
         title: 'Executive Director <br /> <span class="font-normal">MetaIntelligence</span> <br /> <span class="text-sm font-normal">2025 - Present</span>',
         description:
           `<ul class="list-disc pl-5 space-y-1">
-             <li>Led MVI (Meta Vision AI), a manufacturing defect detection product; full-stack delivery using GAN and Stable Diffusion models, with shading-aware vision detection.</li>
-             <li>Led and built Namespring, a naming recommendation service, delivering both backend and frontend in a React + Vite stack.</li>
+             <li>Led <a class="resume-link" href="https://metaintelligence.github.io/solutions/mvi" target="_blank" rel="noopener noreferrer">MVI (Meta Vision AI)</a>, a manufacturing defect detection product; full-stack delivery using GAN and Stable Diffusion models, with shading-aware vision detection.</li>
+             <li>Led and built <a class="resume-link" href="https://metaintelligence.github.io/namespring-web/" target="_blank" rel="noopener noreferrer">Namespring</a>, a naming recommendation service, delivering both backend and frontend in a React + Vite stack.</li>
            </ul>`,
         icon: 'tabler:briefcase',
       },
