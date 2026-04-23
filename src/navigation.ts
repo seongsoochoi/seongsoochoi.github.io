@@ -1,4 +1,4 @@
-import { getPermalink, getBlogPermalink } from './utils/permalinks';
+import { getPermalink } from './utils/permalinks';
 
 export const headerData = {
   links: [
@@ -11,11 +11,11 @@ export const headerData = {
       href: getPermalink('/resume'),
     },
     {
-      text: 'Blog',
-      href: getBlogPermalink(),
+      text: 'Contact',
+      href: getPermalink('/contact'),
     },
   ],
-  actions: [], // Removed Download CV button
+  actions: [],
 };
 
 export const footerData = {
@@ -23,25 +23,22 @@ export const footerData = {
     {
       title: 'Sitemap',
       links: [
+        { text: 'Home', href: getPermalink('/') },
         { text: 'About', href: getPermalink('/about') },
         { text: 'Resume', href: getPermalink('/resume') },
-        { text: 'Blog', href: getBlogPermalink() },
+        { text: 'Contact', href: getPermalink('/contact') },
       ],
     },
     {
       title: 'Connect',
       links: [
-        { text: 'GitHub', href: 'https://github.com/artrointel' },
-        { text: 'Email', href: 'mailto:artrointel@gmail.com' },
+        { text: 'Email', href: 'mailto:choi@metaintelligence.co.kr' },
       ],
     },
   ],
   secondaryLinks: [],
-  socialLinks: [
-    { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/artrointel' },
-    { ariaLabel: 'Email', icon: 'tabler:mail', href: 'mailto:artrointel@gmail.com' },
-  ],
+  socialLinks: [],
   footNote: `
-    Made by <a class="text-blue-600 underline dark:text-muted" href="https://github.com/artrointel"> Artrointel</a> · All rights reserved.
+    Copyright ${new Date().getFullYear()} <a class="text-blue-600 underline dark:text-muted" href="mailto:choi@metaintelligence.co.kr">Seongsoo Choi</a>. All rights reserved.
   `,
 };

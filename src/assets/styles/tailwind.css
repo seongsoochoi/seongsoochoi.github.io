@@ -85,6 +85,13 @@
   @apply rotate-45 translate-y-[-8px] translate-x-[14px];
 }
 
+/* Keep content readable before intersection animations are initialized. */
+@media (prefers-reduced-motion: no-preference) and (min-width: 768px) {
+  .motion-safe\:md\:opacity-0 {
+    opacity: 1 !important;
+  }
+}
+
 /* To deprecated */
 
 .dd *:first-child {

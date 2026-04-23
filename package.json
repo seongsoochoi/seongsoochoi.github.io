@@ -1,7 +1,7 @@
 {
-  "name": "artrointel.github.io",
+  "name": "seongsoochoi.github.io",
   "version": "1.0.0-beta.52",
-  "description": "Artrointel personal site built with Astro and Tailwind CSS.",
+  "description": "Personal site for Seongsoo Choi, CEO of MetaIntelligence.",
   "type": "module",
   "private": true,
   "engines": {

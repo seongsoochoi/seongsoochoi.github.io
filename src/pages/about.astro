@@ -6,153 +6,164 @@ import Hero from '~/components/widgets/Hero.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import Content from '~/components/widgets/Content.astro';
 import Layout from '~/layouts/PageLayout.astro';
+import metaLogoRaw from '~/assets/images/logo_metaintelligence.svg?raw';
 
 const metadata = {
-  title: 'About Me',
+  title: 'About Seongsoo Choi',
+  description:
+    'About Seongsoo Choi, CEO of MetaIntelligence and Integrated AI Solution Architect with a Ph.D. in Physics.',
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
-
   <Hero
-    tagline="About Me"
+    tagline="About"
     image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Woohyun Kim Workspace',
+      src: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Networked technology landscape',
     }}
   >
     <Fragment slot="title">
-      Architecting the Future with <br />
-      <span class="text-accent dark:text-white"> 3D Graphics & AI</span>
+      First-Principles AI for <br />
+      <span class="text-accent dark:text-white">Industry and Research</span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      I am an Executive Director and Senior Software Engineer specializing in Computer Graphics and Generative AI.
-      My journey bridges mathematical theory with high-performance engineering, creating tools that empower users and systems that scale.
+      Seongsoo Choi is the founder, CEO, and president of MetaIntelligence. His work combines physics-informed
+      modeling, integrated AI architecture, high-performance computing, and R&amp;D leadership.
     </Fragment>
   </Hero>
 
-  <!-- Stats Widget ****************** -->
-
   <Stats
-    title="Engineering Journey"
+    title="Professional Foundation"
     stats={[
-      { title: 'Years Experience', amount: '10+' },
-      { title: 'Key Projects', amount: '15+' },
-      { title: 'Awards & Patents', amount: '5+' },
-      { title: 'Tech Articles', amount: '20+' },
+      { title: 'Company Founded', amount: '2021' },
+      { title: 'POSTECH Physics Ph.D.', amount: '2016' },
+      { title: 'Solution Architect', amount: 'AI' },
+      { title: 'NRF Projects', amount: '7' },
     ]}
   />
 
-  <!-- Features3 Widget (Focus Areas) ************** -->
-
   <Features3
-    title="Core Focus Areas"
-    subtitle="My career has been defined by a deep dive into these three pillars of technology."
+    title="Focus Areas"
+    subtitle="Capabilities from the resume, organized around AI architecture, physics, and R&amp;D commercialization."
     columns={3}
     isBeforeContent={true}
     items={[
       {
-        title: 'Graphics Engineering',
+        title: 'AI Architecture',
         description:
-          'From low-level OpenGL optimizations to high-level rendering engines. Built creative tools like Wonderland and Watch Face Studio, among others.',
-        icon: 'tabler:cube',
-      },
-      {
-        title: 'Generative AI & R&D',
-        description:
-          'Leading research and development at MetaIntelligence. Focusing on large-scale model integration and practical AI applications, including MVI for manufacturing defect detection.',
-        icon: 'tabler:brain',
-      },
-      {
-        title: 'System Architecture',
-        description:
-          'Designing robust end-to-end architectures. I believe in building systems that are not just functional but maintainable and scalable.',
+          'Designs integrated AI systems that combine natural-language processing, vision, optimization, and domain workflows.',
         icon: 'tabler:sitemap',
+      },
+      {
+        title: 'Physics and HPC',
+        description:
+          'Brings a background in mathematical physics, computational physics, condensed matter theory, quantum many-body theory, and supercomputing.',
+        icon: 'tabler:atom',
+      },
+      {
+        title: 'R&D Commercialization',
+        description:
+          'Turns patent-backed research into AI solutions while leading corporate strategy, research-center operations, and government R&D programs.',
+        icon: 'tabler:chart-arrows-vertical',
       },
     ]}
   />
 
-  <!-- Features Widget (Philosophy) ****************** -->
-
   <Features
-    id="philosophy"
-    tagline="Values"
-    title="My Philosophy"
-    subtitle="I believe that great software is born from a clear understanding of the problem, not just the tools used to solve it."
+    id="approach"
+    tagline="Approach"
+    title="How the Work Is Framed"
+    subtitle="The same method appears across NLP, vision AI, and manufacturing intelligence: start from structure, then build the system."
     items={[
       {
-        title: 'Language Agnosticism',
+        title: 'First-Principles Modeling',
         description:
-          'I view programming languages as tools, not identities. Whether it is C++, Python, or Kotlin, I focus on the algorithmic logic and architectural integrity appropriate for the problem at hand.',
-        icon: 'tabler:code',
-      },
-      {
-        title: 'Mathematical Foundation',
-        description:
-          'With a background in Applied Mathematics, I approach software challenges with first-principles thinking, ensuring optimization and logic are mathematically sound.',
+          'Problems are decomposed into mathematical structure before implementation decisions are made.',
         icon: 'tabler:math-function',
       },
       {
-        title: 'Macro-Optimization',
+        title: 'Invariant Representation',
         description:
-          'True performance comes from seeing the forest, not just the trees. I prioritize system-wide architectural optimization over premature micro-optimization.',
-        icon: 'tabler:zoom-check',
+          'NLP research centers on partitioning natural-language datasets, deriving digital trees, optimizing parameters, and identifying invariant basis sets.',
+        icon: 'tabler:binary-tree',
+      },
+      {
+        title: 'Operational AI',
+        description:
+          'AI systems are treated as operating architectures, not isolated models: data intake, diagnosis, explanation, and reporting are designed together.',
+        icon: 'tabler:settings-automation',
       },
     ]}
   />
-
-  <!-- Content Widget (Achievements) ****************** -->
 
   <Content
     isReversed
     tagline="Highlights"
-    title="Key Achievements"
-    subtitle="Major milestones from my career at Samsung Electronics and beyond."
+    title="Selected Achievements"
+    subtitle="A concise view of the major career signals from the resume."
     items={[
       {
-        title: 'Creative Platforms',
+        title: 'Registered Patent',
         description:
-          'Architected and developed "Wonderland" (Wallpaper Creator) and "Watch Face Studio" (Wear OS Tool), empowering millions of Galaxy users to express their creativity.',
+          'Sole inventor of Korean Patent No. 10-2573563, a first-principles natural-language data analysis system and method.',
       },
       {
-        title: 'Innovation & Patents',
+        title: 'Government R&D Leadership',
         description:
-          'Developed "Runtime Gradient Blur" technology (Patent Grade A) and led the implementation of AI Effects for the Galaxy S25 series.',
+          'Principal investigator for Korea NRF projects, including four consecutive years of re-ordered work and seven cumulative projects.',
       },
       {
-        title: 'Recognition & Awards',
+        title: 'Academic Publication',
         description:
-          'Recipient of the Minister Award (Grand Prize) at K-Hackathon and Silver Award at KIT Engineering Fair for excellence in software engineering.',
+          'Published mathematical-physics research on primes and nontrivial zeros in the Riemann hypothesis in Journal of Mathematical Physics.',
       },
     ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Achievements Image',
-    }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Proven Track Record</h3>
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Research depth with delivery ownership
+      </h3>
+      The profile spans fundamental physics, AI methods, patents, public R&D, and executive responsibility at
+      MetaIntelligence.
+    </Fragment>
+
+    <Fragment slot="image">
+      <div class="rounded-lg border border-black/10 bg-white p-8 shadow-lg dark:border-white/10 dark:bg-slate-900">
+        <div class="mx-auto max-w-xs [&>svg]:h-auto [&>svg]:w-full" set:html={metaLogoRaw} />
+        <div class="mt-6 grid grid-cols-3 gap-3 text-center">
+          <div>
+            <div class="text-sm font-bold text-gray-900 dark:text-white">Patent</div>
+            <div class="mt-1 text-xs text-muted dark:text-slate-400">10-2573563</div>
+          </div>
+          <div>
+            <div class="text-sm font-bold text-gray-900 dark:text-white">NRF</div>
+            <div class="mt-1 text-xs text-muted dark:text-slate-400">7 projects</div>
+          </div>
+          <div>
+            <div class="text-sm font-bold text-gray-900 dark:text-white">JMP</div>
+            <div class="mt-1 text-xs text-muted dark:text-slate-400">2012</div>
+          </div>
+        </div>
+      </div>
     </Fragment>
   </Content>
 
-  <!-- Features2 Widget (Contact) ************** -->
-
   <Features2
-    title="Connect with Me"
-    tagline="Contact"
+    title="Contact"
+    tagline="Connect"
     columns={2}
     items={[
       {
         title: 'Email',
-        description: 'artrointel@gmail.com',
+        description: 'choi@metaintelligence.co.kr',
         icon: 'tabler:mail',
       },
       {
-        title: 'GitHub',
-        description: 'github.com/artrointel',
-        icon: 'tabler:brand-github',
+        title: 'Organization',
+        description: 'MetaIntelligence Inc.',
+        icon: 'tabler:building',
       },
     ]}
   />

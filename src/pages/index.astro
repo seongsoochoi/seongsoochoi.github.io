@@ -4,125 +4,132 @@ import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Features from '~/components/widgets/Features.astro';
 import Content from '~/components/widgets/Content.astro';
-import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import metaLogoRaw from '~/assets/images/logo_metaintelligence.svg?raw';
 
 const metadata = {
-  title: 'Woohyun Kim | 3D Graphics & AI Engineer',
+  title: 'Seongsoo Choi | Integrated AI Solution Architect',
   ignoreTitleTemplate: true,
+  description:
+    'Seongsoo Choi is CEO of MetaIntelligence and an Integrated AI Solution Architect with a Ph.D. in Physics.',
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
-
-  <Hero>
+  <Hero
+    tagline="Integrated AI Solution Architect"
+    actions={[
+      { variant: 'primary', text: 'View Resume', href: '/resume', icon: 'tabler:file-text' },
+      { text: 'Contact', href: 'mailto:choi@metaintelligence.co.kr', icon: 'tabler:mail' },
+    ]}
+  >
     <Fragment slot="title">
-      <span class="text-gray-900 dark:text-gray-200">Woohyun Kim</span>
+      <span class="text-gray-900 dark:text-gray-200">Seongsoo Choi</span>
       <br />
       <span class="text-2xl font-light tracking-wide text-gray-600 dark:text-gray-400">
-        Executive Director & Senior Engineer
+        CEO, MetaIntelligence
       </span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      <span class="hidden sm:inline">
-        Specialist in <b>3D Graphics</b> and <b>Deep Learning (GenAI)</b>.
-        <br/>
-        Architecting robust systems by bridging mathematical theory with high-performance engineering.
-      </span>
+      Ph.D. physicist building physics-informed AI systems across natural language, vision, high-performance
+      computing, and R&amp;D strategy.
     </Fragment>
   </Hero>
 
-  <!-- Features Widget (Skills) *************** -->
+  <Stats
+    title="Profile at a Glance"
+    stats={[
+      { title: 'Founded MetaIntelligence', amount: '2021' },
+      { title: 'No. 10-2573563', amount: 'AI Patent' },
+      { title: 'NRF Projects Led', amount: '7' },
+      { title: 'Physics Ph.D.', amount: 'POSTECH' },
+    ]}
+  />
 
   <Features
     id="competencies"
     tagline="Core Competencies"
-    title="Technical Expertise"
-    subtitle="Combining mathematical precision with creative engineering to build next-generation systems."
+    title="Physics-Informed AI Leadership"
+    subtitle="A first-principles approach to AI architecture, manufacturing intelligence, and research commercialization."
     items={[
       {
-        title: '3D Graphics & Rendering',
+        title: 'Physics-Informed AI',
         description:
-          'Extensive experience with OpenGL ES, GLSL, and rendering pipelines, from low-level optimizations to high-level creative tools.',
-        icon: 'tabler:cube',
+          'Designs AI models and analytical systems from theoretical physics, mathematical structure, and first-principles reasoning.',
+        icon: 'tabler:atom',
       },
       {
-        title: 'Generative AI & DL',
+        title: 'Integrated AI Architecture',
         description:
-          'Leading R&D in Generative AI and Deep Learning at MetaIntelligence, applying cutting-edge models to practical solutions.',
-        icon: 'tabler:brain',
-      },
-      {
-        title: 'System Architecture',
-        description:
-          'Designing robust, scalable end-to-end systems with a macro-level perspective on performance and stability.',
+          'Architects end-to-end solutions that combine NLP, vision AI, optimization, and domain-specific workflows.',
         icon: 'tabler:sitemap',
       },
       {
-        title: 'Mathematical R&D',
+        title: 'First-Principles NLP',
         description:
-          'Leveraging a strong background in Applied Mathematics to solve complex algorithmic challenges in graphics and AI.',
-        icon: 'tabler:math-function',
+          'Developed a patented natural-language data analysis system based on partitioning, digital trees, parameter optimization, and invariant bases.',
+        icon: 'tabler:binary-tree',
       },
       {
-        title: 'Performance Engineering',
+        title: 'Manufacturing Vision AI',
         description:
-          'Deep expertise in GPU profiling, memory management, and system optimization using industry-standard tools.',
-        icon: 'tabler:activity',
+          'Plans anomaly detection and VLM-assisted defect classification systems for high-speed industrial inspection.',
+        icon: 'tabler:camera-search',
       },
       {
-        title: 'Platform Engineering',
+        title: 'HPC and Quantum Research',
         description:
-          'Experience in building creative platforms and SDKs like Watch Face Studio, empowering creators globally.',
-        icon: 'tabler:tools',
+          'Experienced in large-scale supercomputing, quantum many-body theory, mathematical physics, and computational physics.',
+        icon: 'tabler:cpu',
+      },
+      {
+        title: 'R&D Management',
+        description:
+          'Leads government R&D programs, patent-based commercialization, corporate research operations, and multi-partner project delivery.',
+        icon: 'tabler:briefcase',
       },
     ]}
   />
-
-  <!-- Content Widget (Philosophy) **************** -->
 
   <Content
     isReversed
-    tagline="Philosophy"
-    title="Engineering Philosophy"
+    tagline="Current Work"
+    title="Building Integrated AI Systems for Real-World Decisions"
+    subtitle="MetaIntelligence focuses on applied AI that connects data, diagnosis, reporting, and actionable industrial insight."
     items={[
       {
-        title: 'Language Agnosticism',
+        title: 'MetaInsight MFG',
         description:
-          'Tools change, but logic remains. I prioritize algorithmic thinking and architectural integrity over syntax dependencies, allowing for seamless adaptation to any technology stack.',
+          'Agentic AI for production-data root-cause diagnosis and automated report generation, scheduled from June 2026.',
       },
       {
-        title: 'The Big Picture',
+        title: 'MVI DefectSense',
         description:
-          'True optimization comes from understanding the entire system. I focus on designing architectures that are not only efficient today but scalable for tomorrow.',
+          'Unsupervised normality learning for fine-defect detection, paired with VLM-based defect classification and explanation.',
       },
       {
-        title: 'Innovation through Basics',
+        title: 'NRF Information Analysis',
         description:
-          'My approach is rooted in fundamental principles—mathematics and computer science theory—which serve as the bedrock for innovative solutions in AI and Graphics.',
+          'Principal investigator for overseas R&D investment analysis and multiple NRF technology-trend research projects.',
       },
     ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Engineering Philosophy',
-    }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">From Mathematics to Meta-Systems</h3>
-      Building the future requires a solid foundation.
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        From mathematical structure to deployed AI
+      </h3>
+      The work connects theoretical modeling with business execution: define the structure, build the architecture,
+      validate the method, and translate it into an AI solution that can be operated by real teams.
     </Fragment>
 
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    <Fragment slot="image">
+      <div class="rounded-lg border border-black/10 bg-white p-8 shadow-lg dark:border-white/10 dark:bg-slate-900">
+        <div class="mx-auto max-w-sm [&>svg]:h-auto [&>svg]:w-full" set:html={metaLogoRaw} />
+        <p class="mt-6 text-center text-sm font-medium text-muted dark:text-slate-400">
+          MetaIntelligence Inc.
+        </p>
+      </div>
     </Fragment>
   </Content>
-
-  <!-- BlogLatestPosts Widget ******* -->
-
-  <BlogLatestPosts
-    title="Latest Insights"
-    information={`Sharing thoughts on technology, architecture, and the future of AI.`}
-  />
-
 </Layout>

@@ -1,30 +1,28 @@
 site:
-  name: Artrointel
-  site: 'https://artrointel.github.io'
+  name: Seongsoo Choi
+  site: 'https://seongsoochoi.github.io'
   base: '/'
   trailingSlash: false
 
-  googleSiteVerificationId: orcPxI47GSa-cRvY11tUe6iGg2IO_RPvnA1q95iEM3M
+  googleSiteVerificationId: null
 
 # Default SEO metadata
 metadata:
   title:
-    default: Artrointel
-    template: '%s | Artrointel'
-  description: 'Artrointel portfolio, blog, and engineering notes on AI and 3D graphics.'
+    default: Seongsoo Choi
+    template: '%s | Seongsoo Choi'
+  description: 'Seongsoo Choi is CEO of MetaIntelligence and an Integrated AI Solution Architect with a Ph.D. in Physics.'
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: Artrointel
+    site_name: Seongsoo Choi
     images:
       - url: '~/assets/images/default.png'
         width: 1200
         height: 628
     type: website
   twitter:
-    handle: '@arthelokyo'
-    site: '@arthelokyo'
     cardType: summary_large_image
 
 i18n:
@@ -33,7 +31,7 @@ i18n:
 
 apps:
   blog:
-    isEnabled: true
+    isEnabled: false
     postsPerPage: 6
 
     post:

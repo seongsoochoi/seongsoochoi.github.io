@@ -4,1062 +4,322 @@ import Hero from '~/components/widgets/Hero.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import Content from '~/components/widgets/Content.astro';
-import samsungLogoBlack from '~/assets/images/logo_samsung_black.png';
-import samsungLogoWhite from '~/assets/images/logo_samsung_white.png';
+import Stats from '~/components/widgets/Stats.astro';
 import metaLogoRaw from '~/assets/images/logo_metaintelligence.svg?raw';
-import vvBreathFocusingDark from '~/assets/multimedia/vanillavibes/vv_breath_focusing_dark.mp4';
-import vvBreathFocusingLight from '~/assets/multimedia/vanillavibes/vv_breath_focusing_light.mp4';
-import vvScanRevealDark from '~/assets/multimedia/vanillavibes/vv_scan_reveal_dark.mp4';
-import vvScanRevealLight from '~/assets/multimedia/vanillavibes/vv_scan_reveal_light.mp4';
-const baseUrl = import.meta.env.BASE_URL ?? '/';
-const crossBridgePreviewSrc = `${baseUrl}assets/projects/cross-the-bridge/bridge.jpg`;
-const smartVoicePreviewSrc = `${baseUrl}assets/projects/smart-voice/settings.jpg`;
-const friendlyFarmFarmingSrc = `${baseUrl}assets/projects/friendly-farm/farming.jpg`;
-const friendlyFarmDefenseSrc = `${baseUrl}assets/projects/friendly-farm/defense.jpg`;
-const familyStoryPreviewSrc = `${baseUrl}assets/projects/family-story/family-story.jpg`;
 
 const metadata = {
-  title: 'Resume - Woohyun Kim',
+  title: 'Resume - Seongsoo Choi',
+  description:
+    'Resume of Seongsoo Choi, CEO of MetaIntelligence, Integrated AI Solution Architect, and Ph.D. in Physics.',
 };
 
-const vanillaVibesVideos = [
-  { label: 'vv_breath_focusing_light.mp4', src: vvBreathFocusingLight },
-  { label: 'vv_breath_focusing_dark.mp4', src: vvBreathFocusingDark },
-  { label: 'vv_scan_reveal_light.mp4', src: vvScanRevealLight },
-  { label: 'vv_scan_reveal_dark.mp4', src: vvScanRevealDark },
+const careerItems = [
+  {
+    title:
+      'CEO / President <br /> <span class="font-normal">MetaIntelligence Inc.</span> <br /> <span class="text-sm font-normal">2021.12 - Present</span>',
+    description:
+      `<ul class="list-disc pl-5 space-y-1">
+        <li>Founded MetaIntelligence and leads corporate strategy, research-center operations, and R&amp;D execution.</li>
+        <li>Serves as Integrated AI Solution Architect with responsibility across NLP, vision AI, and applied AI systems.</li>
+        <li>Leads patent-backed commercialization and government R&amp;D programs.</li>
+      </ul>`,
+    icon: 'tabler:building',
+  },
+  {
+    title:
+      'Principal Researcher / AI Master <br /> <span class="font-normal">F1Soft Co., Ltd.</span> <br /> <span class="text-sm font-normal">2021.10 - 2022.01</span>',
+    description:
+      `<ul class="list-disc pl-5 space-y-1">
+        <li>Worked on supercomputing, rule-based and AI-based natural-language processing, and machine vision.</li>
+      </ul>`,
+    icon: 'tabler:brain',
+  },
+  {
+    title:
+      'Staff Software Engineer, Advanced Technology Research <br /> <span class="font-normal">Samsung Display Co., Ltd.</span> <br /> <span class="text-sm font-normal">2017.09 - 2020.03</span>',
+    description:
+      `<ul class="list-disc pl-5 space-y-1">
+        <li>Developed AI and computer-vision automation for defect inspection across cell, module, and FAB environments.</li>
+        <li>Built internal advanced software for manufacturing-inspection workflows.</li>
+      </ul>`,
+    icon: 'tabler:camera-search',
+  },
+  {
+    title:
+      'Postdoctoral Researcher / KISTI Project Principal Investigator <br /> <span class="font-normal">UNIST</span> <br /> <span class="text-sm font-normal">2016.02 - 2017.08</span>',
+    description:
+      `<ul class="list-disc pl-5 space-y-1">
+        <li>Led machine-learning research based on large-scale supercomputing resources.</li>
+      </ul>`,
+    icon: 'tabler:cpu',
+  },
+  {
+    title:
+      'Invited Participant, Fully Funded Summer School <br /> <span class="font-normal">UCLA</span> <br /> <span class="text-sm font-normal">2014.07 - 2014.08</span>',
+    description:
+      `<ul class="list-disc pl-5 space-y-1">
+        <li>Studied electronic-structure theory for materials and biomolecular systems.</li>
+      </ul>`,
+    icon: 'tabler:school',
+  },
+  {
+    title:
+      'Researcher <br /> <span class="font-normal">WCU POSTECH</span> <br /> <span class="text-sm font-normal">2011.09 - 2012.12</span>',
+    description:
+      `<ul class="list-disc pl-5 space-y-1">
+        <li>Researched quantum field theory and strongly correlated electronic systems under Prof. E. J. Baerends.</li>
+      </ul>`,
+    icon: 'tabler:atom',
+  },
+  {
+    title:
+      'Global Ph.D. Fellow <br /> <span class="font-normal">National Research Foundation of Korea / POSTECH</span> <br /> <span class="text-sm font-normal">2011.03 - 2016.02</span>',
+    description:
+      `<ul class="list-disc pl-5 space-y-1">
+        <li>Completed doctoral research under Prof. Kwang S. Kim, now Distinguished Professor at UNIST.</li>
+      </ul>`,
+    icon: 'tabler:award',
+  },
 ];
 
-const wonderlandVideos = [
-  { label: 'https://www.youtube.com/shorts/_sbea9T3yzc', src: 'https://www.youtube.com/embed/_sbea9T3yzc' },
-  { label: 'https://www.youtube.com/shorts/ofM3ofy1fek', src: 'https://www.youtube.com/embed/ofM3ofy1fek' },
-  { label: 'https://www.youtube.com/shorts/mwvoi2LDb9I', src: 'https://www.youtube.com/embed/mwvoi2LDb9I' },
-  { label: 'https://www.youtube.com/shorts/yu2Zy00WKEA', src: 'https://www.youtube.com/embed/yu2Zy00WKEA' },
-  { label: 'https://www.youtube.com/shorts/H25LeNEQTl8', src: 'https://www.youtube.com/embed/H25LeNEQTl8' },
+const educationItems = [
+  {
+    title:
+      'Ph.D. in Physics <br /> <span class="font-normal">POSTECH</span> <br /> <span class="text-sm font-normal">2011.03 - 2016.02</span>',
+    description:
+      `<ul class="list-disc pl-5 space-y-1">
+        <li>Major fields: mathematical physics, computational physics, condensed matter physics, and quantum many-body theory.</li>
+        <li>Dissertation: three topics in mathematical physics, including irreducible matrix eigenvalue reduction, eigen-graph methods for nearly overlapped states, and primes and roots in the Riemann hypothesis.</li>
+      </ul>`,
+    icon: 'tabler:school',
+  },
+  {
+    title:
+      'B.S., Division of Natural Sciences <br /> <span class="font-normal">Kumoh National Institute of Technology</span> <br /> <span class="text-sm font-normal">2004.03 - 2011.02</span>',
+    description:
+      `<ul class="list-disc pl-5 space-y-1">
+        <li>Double major in physics and applied mathematics.</li>
+      </ul>`,
+    icon: 'tabler:school',
+  },
 ];
 
+const projectItems = [
+  {
+    title:
+      'MetaInsight MFG <br /> <span class="font-normal">AX-LLM Collaboration Project</span> <br /> <span class="text-sm font-normal">Scheduled from 2026.06</span>',
+    description:
+      `<ul class="list-disc pl-5 space-y-1">
+        <li>Agentic AI for root-cause diagnosis and automated report generation from production data.</li>
+        <li>Role: PM and architect, with 60 percent allocation and NC AI collaboration ownership.</li>
+      </ul>`,
+    icon: 'tabler:robot',
+  },
+  {
+    title:
+      'MVI DefectSense <br /> <span class="font-normal">Manufacturing Vision AI</span> <br /> <span class="text-sm font-normal">Planned 2026</span>',
+    description:
+      `<ul class="list-disc pl-5 space-y-1">
+        <li>High-speed fine-defect detection based on unsupervised normality learning.</li>
+        <li>Designed with VLM-based defect classification and explanation.</li>
+      </ul>`,
+    icon: 'tabler:camera-search',
+  },
+  {
+    title:
+      'MicroDIPS - Anomaly Detection and Data Augmentation <br /> <span class="font-normal">Korea Institute of Startup and Entrepreneurship Development</span> <br /> <span class="text-sm font-normal">2025.08 - 2025.12</span>',
+    description:
+      `<ul class="list-disc pl-5 space-y-1">
+        <li>Led the full project as PM for the ACIA and Ara consortium.</li>
+      </ul>`,
+    icon: 'tabler:chart-dots',
+  },
+  {
+    title:
+      'Overseas R&D Investment Information Analysis <br /> <span class="font-normal">National Research Foundation of Korea</span> <br /> <span class="text-sm font-normal">2025.06 - 2026.02</span>',
+    description:
+      `<ul class="list-disc pl-5 space-y-1">
+        <li>Served as principal investigator for analysis of overseas R&amp;D investment status.</li>
+      </ul>`,
+    icon: 'tabler:report-analytics',
+  },
+  {
+    title:
+      'NRF Research Projects <br /> <span class="font-normal">Four consecutive years of re-orders, seven cumulative projects</span> <br /> <span class="text-sm font-normal">2022.10 - 2026.02</span>',
+    description:
+      `<ul class="list-disc pl-5 space-y-1">
+        <li>Served as principal investigator for repeated NRF research-analysis projects.</li>
+      </ul>`,
+    icon: 'tabler:files',
+  },
+];
 ---
 
 <Layout metadata={metadata}>
   <div class="resume-content">
-  <!-- Hero Widget ******************* -->
+    <Hero
+      tagline="Curriculum Vitae"
+      actions={[
+        { variant: 'primary', text: 'Email', href: 'mailto:choi@metaintelligence.co.kr', icon: 'tabler:mail' },
+        { text: 'About', href: '/about', icon: 'tabler:user' },
+      ]}
+    >
+      <Fragment slot="title">Resume</Fragment>
 
-  <Hero
-    tagline="Curriculum Vitae"
-  >
-    <Fragment slot="title">
-      Resume
-    </Fragment>
+      <Fragment slot="subtitle">
+        Seongsoo Choi, CEO and president of MetaIntelligence, Integrated AI Solution Architect, Ph.D. in Physics.
+      </Fragment>
+    </Hero>
 
-    <Fragment slot="subtitle">
-      Executive Director & Senior Software Engineer with over 10 years of experience in <br class="hidden md:inline" />
-      <span class="font-semibold">3D Graphics</span> and <span class="font-semibold">Generative AI</span>.
-    </Fragment>
-  </Hero>
-
-  <!-- Company Logos ******************* -->
-
-  <section class="py-4 md:py-6">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6">
-      <div class="flex flex-wrap justify-center items-end gap-8 sm:gap-12">
-        <div class="flex flex-col items-center gap-2">
-          <a
-            href="https://www.samsung.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="block"
-            aria-label="Samsung Electronics logo"
-          >
-            <div class="h-12 sm:h-14 w-40 sm:w-44 flex items-center justify-center">
-              <img
-                src={samsungLogoBlack.src}
-                alt="Samsung Electronics"
-                class="h-full w-auto object-contain block dark:hidden"
-                loading="lazy"
-                decoding="async"
-              />
-              <img
-                src={samsungLogoWhite.src}
-                alt="Samsung Electronics"
-                class="h-full w-auto object-contain hidden dark:block"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-          </a>
-          <span class="text-xs text-muted">2014 - 2025</span>
-        </div>
-
-        <div class="flex flex-col items-center gap-2">
-          <a
-            href="https://metaintelligence.github.io/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="block"
-            aria-label="MetaIntelligence logo"
-          >
-            <div class="h-12 sm:h-14 w-16 sm:w-20 flex items-center justify-center">
-              <span class="sr-only">MetaIntelligence</span>
-              <div class="meta-logo w-16 sm:w-20 [&>svg]:w-full [&>svg]:h-auto" set:html={metaLogoRaw} />
-            </div>
-          </a>
-          <span class="text-xs text-muted">2025 - Present</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Experience Widget ****************** -->
-
-  <Steps
-    id="experience"
-    title="Work Experience"
-    subtitle="Samsung Electronics entries include concurrent roles; overlapping dates are intentional."
-    items={[
-      {
-        title: 'Executive Director <br /> <span class="font-normal">MetaIntelligence</span> <br /> <span class="text-sm font-normal">2025 - Present</span>',
-        description:
-          `<ul class="list-disc pl-5 space-y-1">
-             <li>Led <a class="resume-link" href="https://metaintelligence.github.io/solutions/mvi" target="_blank" rel="noopener noreferrer">MVI (Meta Vision AI)</a>, a manufacturing defect detection product; full-stack delivery using GAN and Stable Diffusion models, with shading-aware vision detection.</li>
-             <li>Led and built <a class="resume-link" href="https://metaintelligence.github.io/namespring-web/" target="_blank" rel="noopener noreferrer">Namespring</a>, a naming recommendation service, delivering both backend and frontend in a React + Vite stack.</li>
-           </ul>`,
-        icon: 'tabler:briefcase',
-      },
-      {
-        title:
-          'Software Engineer (Wonderland & AI Effects) <br /> <span class="font-normal">Samsung Electronics</span> <br /> <span class="text-sm font-normal">2023 - 2025 (Primary role)</span>',
-        description:
-          `<ul class="list-disc pl-5 space-y-1">
-             <li><button type="button" class="vv-link text-primary hover:underline font-semibold" data-modal-open="wonderland-modal" aria-haspopup="dialog" aria-controls="wonderland-modal">Wonderland</button>: Served as a core developer for the "Wallpaper Transition Effects" section of 'Wonderland' (Good Lock).</li>
-             <li><button type="button" class="vv-link text-primary hover:underline font-semibold" data-modal-open="vanillavibes-modal" aria-haspopup="dialog" aria-controls="vanillavibes-modal">VanillaVibes</button>: Built a shared RenderEffect-based AI visual effects rendering library for showcasing AI features across Galaxy phones, and drove its official integration starting with One UI 7.0; it has continued to evolve in active production ever since.</li>
-             <li>Internal Graphic Libs: Optimized internal graphics library components, including Transparent Video Player and Skottie View, to improve rendering performance and runtime stability.</li>
-           </ul>`,
-        icon: 'tabler:briefcase',
-      },
-      {
-        title:
-          'Platform Software Engineer (Watch Face Studio) <br /> <span class="font-normal">Samsung Electronics</span> <br /> <span class="text-sm font-normal">2020 - 2025 (Concurrent role)</span>',
-        description:
-          `<ul class="list-disc pl-5 space-y-1">
-             <li>Created <a class="resume-link" href="https://developer.android.com/training/wearables/wff" target="_blank" rel="noopener">WFF (Android Watch Face Format)</a>, an XML-based format defined by the <a class="resume-link" href="https://github.com/google/watchface/commit/bbc2def58c94b18c4deec12d079b2792c2a33fef" target="_blank" rel="noopener">XSD I authored</a> (publicly mirrored from my Samsung work to avoid exposing internal Git history), and built a validator for compatibility and quality checks.</li>
-             <li>Participated in developing the <a class="resume-link" href="https://developer.samsung.com/watch-face-studio/overview.html" target="_blank" rel="noopener">Watch Face Studio</a> preview rendering pipeline.</li>
-             <li>Participated in developing the WFF loader as the Wear OS watch face runtime; the Samsung-built runtime was later adopted into the Android platform and integrated into AOSP as an official watch face loader module.</li>
-           </ul>`,
-        icon: 'tabler:briefcase',
-      },
-      {
-        title: 'Android Graphics Engineer <br /> <span class="font-normal">Samsung Electronics</span> <br /> <span class="text-sm font-normal">2019 - 2020</span>',
-        description:
-          `<ul class="list-disc pl-5 space-y-1">
-             <li>Implemented 'Runtime Gradient Blur' (Patent Grade A) and multi-window blur effects.</li>
-             <li>Proved window‑independent Android view blur via PoC and report; the methodology was later adopted in Samsung phones by the owning team.</li>
-             <li>Implemented <a class="resume-link" href="https://youtu.be/ZGL_8u3thSU?t=14" target="_blank" rel="noopener">Weather‑Raindrop</a> rendering for a Samsung in‑house watch face, based on reverse‑engineering the open‑source <a class="resume-link" href="https://tympanus.net/Development/RainEffect/" target="_blank" rel="noopener">RainEffect</a>.</li>
-           </ul>`,
-        icon: 'tabler:brand-android',
-      },
-      {
-        title: 'Tizen Graphics Engineer <br /> <span class="font-normal">Samsung Electronics</span> <br /> <span class="text-sm font-normal">2018 - 2019</span>',
-        description:
-          `<ul class="list-disc pl-5 space-y-1">
-             <li>Implemented <a class="resume-link" href="https://www.youtube.com/watch?v=B_CbUWJJ4cw" target="_blank" rel="noopener">Activity Sparkles</a> rendering for a Samsung in‑house watch face.</li>
-             <li>Participated in the internal experimental project WatchFactory, a DALi-based 3D watch face tool for Tizen-based Samsung watches; it later evolved into Watch Face Studio.</li>
-           </ul>`,
-        icon: 'tabler:device-watch',
-      },
-      {
-        title: 'Mobile GPU Driver Engineer <br /> <span class="font-normal">Samsung Electronics</span> <br /> <span class="text-sm font-normal">2016 - 2018</span>',
-        description:
-          `<ul class="list-disc pl-5 space-y-1">
-             <li>Engineered ARM Mali GPU drivers for Samsung mobile products.</li>
-             <li>Focused on driver stability, Khronos compliance, and performance tuning.</li>
-             <li>Debugged complex GPU driver issues using low-level profiling tools.</li>
-           </ul>`,
-        icon: 'tabler:cpu',
-      },
-      {
-        title: 'Samsung Software Membership <br /> <span class="text-sm font-normal">2014 - 2015</span>',
-        description:
-          `<ul class="list-disc pl-5 space-y-1">
-             <li>Regular member, 24-1st.</li>
-             <li>Education Team Leader (2014 - 2015).</li>
-             <li>Seminar: Vector, Matrix and Quaternion for 3D Programming — <button type="button" class="vv-link text-primary hover:underline font-semibold" data-modal-open="seminar-3d-math-modal" aria-haspopup="dialog" aria-controls="seminar-3d-math-modal">Preview</button>.</li>
-             <li>Seminar: OpenMP and MPI for Beginners — <button type="button" class="vv-link text-primary hover:underline font-semibold" data-modal-open="seminar-openmp-modal" aria-haspopup="dialog" aria-controls="seminar-openmp-modal">Preview</button>.</li>
-             <li><button type="button" class="vv-link text-primary hover:underline font-semibold" data-modal-open="crossbridge-modal" aria-haspopup="dialog" aria-controls="crossbridge-modal">Cross the Bridge</button>: 3D game engine + bridge simulation; project lead and physics engine (RPEngine) developer.</li>
-             <li><button type="button" class="vv-link text-primary hover:underline font-semibold" data-modal-open="smartvoice-modal" aria-haspopup="dialog" aria-controls="smartvoice-modal">SmartVoice</button>: Voice‑based Android system service using third‑party collective intelligence, with related AOSP platform changes.</li>
-           </ul>`,
-        icon: 'tabler:school',
-      },
-    ]}
-    classes={{ container: 'max-w-3xl' }}
-  />
-
-  <!-- Education Widget ****************** -->
-
-  <Steps
-    id="education"
-    title="Education"
-    items={[
-      {
-        title: 'Bachelor of Science in Software Engineering & Applied Mathematics <br /> <span class="font-normal">Kumoh National Institute of Technology</span> <br /> <span class="text-sm font-normal">2008 - 2015</span>',
-        icon: 'tabler:school',
-      },
-      {
-        title: 'Student Projects <br /> <span class="text-sm font-normal">Kumoh National Institute of Technology</span>',
-        description:
-          `<ul class="list-disc pl-5 space-y-1">
-             <li><button type="button" class="vv-link text-primary hover:underline font-semibold" data-modal-open="friendly-farm-modal" aria-haspopup="dialog" aria-controls="friendly-farm-modal">Friendly Farm</button>: Social network game (SNG) with farming simulation and defense gameplay; project lead.</li>
-             <li><button type="button" class="vv-link text-primary hover:underline font-semibold" data-modal-open="family-story-modal" aria-haspopup="dialog" aria-controls="family-story-modal">Family Story</button>: Family-focused SNS application built as an Android hybrid web app; project lead.</li>
-           </ul>`,
-        icon: 'tabler:school',
-      },
-    ]}
-    classes={{ container: 'max-w-3xl' }}
-  />
-
-  <!-- Skills Widget ****************** -->
-
-  <Features3
-    title="Technical Skills"
-    subtitle="A comprehensive overview of my technical capabilities."
-    columns={3}
-    classes={{ items: { container: 'skills-grid mt-10 max-w-5xl', panel: 'max-w-none w-full' } }}
-    items={[
-      {
-        title: 'Languages',
-        description: 'C++, Java, Kotlin, Python, C#, GLSL, TypeScript, HTML',
-        icon: 'tabler:code',
-      },
-      {
-        title: 'Graphics & GPU',
-        description: 'OpenGL ES, Unity3D, Renderdoc, Mali Graphics Debugger',
-        icon: 'tabler:cube',
-      },
-      {
-        title: 'AI',
-        description: 'Deep Learning, Generative AI, PyTorch, TensorFlow',
-        icon: 'tabler:brain',
-      },
-      {
-        title: 'Frameworks & Platforms',
-        description: 'Android Framework, Android Wear, React, Electron, Vite',
-        icon: 'tabler:device-mobile',
-      },
-      {
-        title: 'Tools',
-        description: 'Android Studio, Visual Studio Code, IntelliJ, Blender, Git, CI/CD pipelines',
-        icon: 'tabler:tools',
-      },
-    ]}
-  />
-
-  <!-- Journals & Awards Widget ****************** -->
-
-  <Content
-    title="Journals & Awards"
-    items={[
-      {
-        title: 'Journal Publication (2016)',
-        description:
-          'Seongsoo Choi, <strong>Woohyun Kim</strong>, and Jongho Kim, “Compression of Hamiltonian matrix: Application to spin-1/2 Heisenberg square lattice,” AIP Advances (2016). <a class="resume-link" href="https://aip.scitation.org/doi/pdf/10.1063/1.4963834" target="_blank" rel="noopener">PDF</a>.',
-      },
-      {
-        title: 'K-Hackathon 3 (2015): Grand Award (Minister Award)',
-        description: 'Received the highest honor for "Team Globell" (Web-based global free internet phone service).',
-      },
-      {
-        title: 'KIT Engineering Fair (2014): Silver Award',
-        description: 'Recognized for "Team Friendly Farm" (Farming simulation SNG).',
-      },
-      {
-        title: 'HPCSS@UNIST (2014): Outstanding Contribution Award',
-        description: 'Awarded for "Team UIRI" (Simulation of double-slit experiment using Supercomputing).',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1562564055-71e051d33c19?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Awards Image',
-    }}
-  >
-  </Content>
-
-  <!-- VanillaVibes Modal ****************** -->
-
-  <div id="vanillavibes-modal" class="media-modal fixed inset-0 z-[9999] hidden" aria-hidden="true" data-modal>
-    <div class="media-backdrop absolute inset-0 z-0 bg-black/40 backdrop-blur-sm" data-modal-close></div>
-    <div class="relative mx-auto my-8 max-w-5xl px-4 sm:px-6">
-      <div
-        class="modal-panel relative z-10 rounded-xl bg-white dark:bg-slate-900 shadow-xl border border-black/10 dark:border-white/10 pointer-events-auto"
-        role="dialog"
-        aria-modal="true"
-        aria-label="VanillaVibes videos"
-      >
-        <div class="flex items-center justify-between px-4 sm:px-6 py-3 border-b border-black/10 dark:border-white/10">
-          <div>
-            <div class="text-sm font-semibold text-gray-800 dark:text-slate-100">VanillaVibes</div>
-            <div class="text-xs text-gray-500 dark:text-slate-400 hidden"></div>
-          </div>
-          <button
-            type="button"
-            class="text-sm text-gray-500 hover:text-gray-800 dark:text-slate-400 dark:hover:text-slate-200"
-            data-modal-close
-          >
-            Close
-          </button>
-        </div>
-        <div class="grid gap-4 sm:gap-6 p-4 sm:p-6 md:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
-          <div class="media-player-card rounded-lg bg-black/5 dark:bg-black/30 p-2 sm:p-3">
-            <video
-              id="vanillavibes-player"
-              class="media-player w-full max-w-full rounded-md bg-black object-contain"
-              controls
-              preload="metadata"
-            ></video>
-          </div>
-          <div>
-            <div class="text-xs uppercase tracking-wide text-gray-500 dark:text-slate-400 mb-2">Clips</div>
-            <ul class="space-y-2">
-              {
-                vanillaVibesVideos.map((video, index) => (
-                  <li>
-                    <button
-                      type="button"
-                      class={`media-item w-full text-left rounded-md px-3 py-2 text-sm border border-black/10 dark:border-white/10 ${
-                        index === 0 ? 'is-active' : ''
-                      }`}
-                      data-vv-src={video.src}
-                    >
-                      {video.label}
-                    </button>
-                  </li>
-                ))
-              }
-            </ul>
+    <section class="py-4 md:py-6">
+      <div class="mx-auto max-w-4xl px-4 sm:px-6">
+        <div class="flex flex-col items-center gap-3">
+          <div class="h-24 w-36 sm:h-28 sm:w-44 [&>svg]:h-full [&>svg]:w-full" set:html={metaLogoRaw} />
+          <div class="text-center">
+            <div class="text-sm font-semibold text-gray-900 dark:text-white">MetaIntelligence Inc.</div>
+            <div class="text-xs text-muted">Founded December 10, 2021</div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
+    </section>
 
-  <!-- Wonderland Modal ****************** -->
+    <Stats
+      title="Professional Snapshot"
+      stats={[
+        { title: 'Current Role', amount: 'CEO' },
+        { title: 'No. 10-2573563', amount: 'Patent' },
+        { title: 'NRF Projects', amount: '7' },
+        { title: 'Doctorate', amount: 'Physics' },
+      ]}
+    />
 
-  <div id="wonderland-modal" class="media-modal fixed inset-0 z-[9999] hidden" aria-hidden="true" data-modal>
-    <div class="media-backdrop absolute inset-0 z-0 bg-black/40 backdrop-blur-sm" data-modal-close></div>
-    <div class="relative mx-auto my-8 max-w-5xl px-4 sm:px-6">
-      <div
-        class="modal-panel relative z-10 rounded-xl bg-white dark:bg-slate-900 shadow-xl border border-black/10 dark:border-white/10 pointer-events-auto"
-        role="dialog"
-        aria-modal="true"
-        aria-label="Wonderland videos"
-      >
-        <div class="flex items-center justify-between px-4 sm:px-6 py-3 border-b border-black/10 dark:border-white/10">
-          <div>
-            <div class="text-sm font-semibold text-gray-800 dark:text-slate-100">Wonderland</div>
-            <div class="text-xs text-gray-500 dark:text-slate-400">
-              To see more videos, search for Samsung Galaxy Wonderland on YouTube.
-            </div>
-          </div>
-          <button
-            type="button"
-            class="text-sm text-gray-500 hover:text-gray-800 dark:text-slate-400 dark:hover:text-slate-200"
-            data-modal-close
-          >
-            Close
-          </button>
-        </div>
-        <div class="grid gap-4 sm:gap-6 p-4 sm:p-6 md:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
-          <div class="media-player-card rounded-lg bg-black/5 dark:bg-black/30 p-2 sm:p-3">
-            <iframe
-              id="wonderland-player"
-              class="media-player w-full max-w-full rounded-md bg-black"
-              src=""
-              title="Wonderland YouTube player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
-          </div>
-          <div>
-            <div class="text-xs uppercase tracking-wide text-gray-500 dark:text-slate-400 mb-2">Clips</div>
-            <ul class="space-y-2">
-              {
-                wonderlandVideos.map((video, index) => (
-                  <li>
-                    <button
-                      type="button"
-                      class={`media-item w-full text-left rounded-md px-3 py-2 text-sm border border-black/10 dark:border-white/10 break-all ${
-                        index === 0 ? 'is-active' : ''
-                      }`}
-                      data-ww-src={video.src}
-                    >
-                      {video.label}
-                    </button>
-                  </li>
-                ))
-              }
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+    <Steps
+      id="experience"
+      title="Career Experience"
+      subtitle="A career spanning AI company leadership, industrial vision AI, supercomputing, and theoretical physics research."
+      items={careerItems}
+      classes={{ container: 'max-w-3xl' }}
+    />
 
-  <!-- Cross the Bridge Modal ****************** -->
+    <Features3
+      id="skills"
+      title="Core Capabilities"
+      subtitle="Technical and leadership capabilities drawn from the resume."
+      columns={3}
+      classes={{ items: { container: 'skills-grid mt-10 max-w-5xl', panel: 'max-w-none w-full' } }}
+      items={[
+        {
+          title: 'Physics-Informed AI',
+          description: 'AI model and system design grounded in theoretical physics and first-principles reasoning.',
+          icon: 'tabler:atom',
+        },
+        {
+          title: 'First-Principles NLP',
+          description:
+            'Mathematical partitioning of natural-language datasets, digital-tree construction, parameter optimization, and invariant-basis derivation.',
+          icon: 'tabler:binary-tree',
+        },
+        {
+          title: 'Integrated AI',
+          description: 'Combined NLP and vision AI architecture for applied industrial solutions.',
+          icon: 'tabler:sitemap',
+        },
+        {
+          title: 'HPC and Quantum',
+          description: 'Large-scale supercomputing operations, quantum many-body theory, and computational physics.',
+          icon: 'tabler:cpu',
+        },
+        {
+          title: 'Unsupervised Anomaly Detection',
+          description: 'Vision-based normality learning for high-speed defect detection and classification workflows.',
+          icon: 'tabler:camera-search',
+        },
+        {
+          title: 'R&D Management',
+          description: 'Patent-backed commercialization, government R&D project leadership, and large-project PM.',
+          icon: 'tabler:briefcase',
+        },
+      ]}
+    />
 
-  <div id="crossbridge-modal" class="media-modal fixed inset-0 z-[9999] hidden" aria-hidden="true" data-modal>
-    <div class="media-backdrop absolute inset-0 z-0 bg-black/40 backdrop-blur-sm" data-modal-close></div>
-    <div class="relative mx-auto my-8 max-w-5xl px-4 sm:px-6">
-      <div
-        class="modal-panel relative z-10 rounded-xl bg-white dark:bg-slate-900 shadow-xl border border-black/10 dark:border-white/10 pointer-events-auto"
-        role="dialog"
-        aria-modal="true"
-        aria-label="Cross the Bridge"
-      >
-        <div class="flex items-center justify-between px-4 sm:px-6 py-3 border-b border-black/10 dark:border-white/10">
-          <div>
-            <div class="text-sm font-semibold text-gray-800 dark:text-slate-100">Cross the Bridge</div>
-            <div class="text-xs text-gray-500 dark:text-slate-400">
-              3D game engine + bridge simulation; project lead and physics engine (RPEngine) developer.
-            </div>
-          </div>
-          <button
-            type="button"
-            class="text-sm text-gray-500 hover:text-gray-800 dark:text-slate-400 dark:hover:text-slate-200"
-            data-modal-close
-          >
-            Close
-          </button>
-        </div>
-        <div class="grid gap-4 sm:gap-6 p-4 sm:p-6 md:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
-          <div class="media-player-card rounded-lg bg-black/5 dark:bg-black/30 p-2 sm:p-3">
-            <iframe
-              id="crossbridge-player"
-              class="media-player w-full max-w-full rounded-md bg-black"
-              src=""
-              title="Cross the Bridge YouTube player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
-            <img
-              id="crossbridge-thumb"
-              src={crossBridgePreviewSrc}
-              alt="Cross the Bridge preview"
-              class="media-thumb hidden w-full rounded-md object-cover"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-          <div class="space-y-3">
-            <div class="text-xs uppercase tracking-wide text-gray-500 dark:text-slate-400">Resources</div>
-            <button
-              type="button"
-              class="media-item w-full text-left rounded-md px-3 py-2 text-sm border border-black/10 dark:border-white/10 inline-block"
-              data-cb-show="video"
-            >
-              YouTube
-            </button>
-            <button
-              type="button"
-              class="media-item w-full text-left rounded-md px-3 py-2 text-sm border border-black/10 dark:border-white/10 inline-block"
-              data-cb-show="thumb"
-            >
-              Thumbnail
-            </button>
-            <a
-              class="media-item w-full text-left rounded-md px-3 py-2 text-sm border border-black/10 dark:border-white/10 inline-block"
-              href="https://github.com/artrointel/RPEngine"
-              target="_blank"
-              rel="noopener"
-            >
-              RPEngine
-            </a>
+    <Steps
+      id="education"
+      title="Education"
+      items={educationItems}
+      classes={{ container: 'max-w-3xl' }}
+    />
+
+    <Steps
+      id="projects"
+      title="Selected Projects"
+      subtitle="Publicly shareable project summaries from the resume."
+      items={projectItems}
+      classes={{ container: 'max-w-3xl' }}
+    />
+
+    <Content
+      title="Intellectual Property and Publications"
+      subtitle="Registered IP and academic output."
+      items={[
+        {
+          title: 'Korean Patent No. 10-2573563',
+          description:
+            'First-principles natural-language data analysis system and method. Sole inventor: Seongsoo Choi. Assignee: MetaIntelligence Inc. Filed 2022.11.02 and registered 2023.08.29.',
+        },
+        {
+          title: 'Journal of Mathematical Physics',
+          description:
+            'Choi, S., Chung, J. W., Kim, K. S., "Relation between primes and nontrivial zeros in the Riemann hypothesis; Legendre polynomials, modified zeta function and Schrodinger equation," Journal of Mathematical Physics 53, 122108 (2012). DOI <a class="resume-link" href="https://doi.org/10.1063/1.4770050" target="_blank" rel="noopener">10.1063/1.4770050</a>.',
+        },
+        {
+          title: 'Doctoral Dissertation',
+          description:
+            'Three topics in mathematical physics, completed at POSTECH Department of Physics in 2016.',
+        },
+      ]}
+    >
+      <Fragment slot="image">
+        <div class="rounded-lg border border-black/10 bg-white p-8 shadow-lg dark:border-white/10 dark:bg-slate-900">
+          <div class="mx-auto max-w-xs [&>svg]:h-auto [&>svg]:w-full" set:html={metaLogoRaw} />
+          <div class="mt-6 text-center">
+            <div class="text-sm font-semibold text-gray-900 dark:text-white">Registered IP and Research Output</div>
+            <p class="mt-2 text-sm text-muted dark:text-slate-400">
+              Patent, journal publication, and doctoral dissertation.
+            </p>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
+      </Fragment>
+    </Content>
 
-  <!-- SmartVoice Modal ****************** -->
-
-  <div id="smartvoice-modal" class="media-modal fixed inset-0 z-[9999] hidden" aria-hidden="true" data-modal>
-    <div class="media-backdrop absolute inset-0 z-0 bg-black/40 backdrop-blur-sm" data-modal-close></div>
-    <div class="relative mx-auto my-8 max-w-5xl px-4 sm:px-6">
-      <div
-        class="modal-panel relative z-10 rounded-xl bg-white dark:bg-slate-900 shadow-xl border border-black/10 dark:border-white/10 pointer-events-auto"
-        role="dialog"
-        aria-modal="true"
-        aria-label="SmartVoice"
-      >
-        <div class="flex items-center justify-between px-4 sm:px-6 py-3 border-b border-black/10 dark:border-white/10">
-          <div>
-            <div class="text-sm font-semibold text-gray-800 dark:text-slate-100">SmartVoice</div>
-            <div class="text-xs text-gray-500 dark:text-slate-400">
-              Voice‑based Android system service using third‑party collective intelligence, with related AOSP platform changes.
-            </div>
-          </div>
-          <button
-            type="button"
-            class="text-sm text-gray-500 hover:text-gray-800 dark:text-slate-400 dark:hover:text-slate-200"
-            data-modal-close
-          >
-            Close
-          </button>
-        </div>
-        <div class="grid gap-4 sm:gap-6 p-4 sm:p-6 md:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
-          <div class="media-player-card rounded-lg bg-black/5 dark:bg-black/30 p-2 sm:p-3">
-            <iframe
-              id="smartvoice-player"
-              class="media-player w-full max-w-full rounded-md bg-black"
-              src=""
-              title="SmartVoice YouTube player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
-            <img
-              id="smartvoice-thumb"
-              src={smartVoicePreviewSrc}
-              alt="SmartVoice preview"
-              class="media-thumb hidden w-full rounded-md object-cover"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-          <div class="space-y-3">
-            <div class="text-xs uppercase tracking-wide text-gray-500 dark:text-slate-400">Resources</div>
-            <button
-              type="button"
-              class="media-item w-full text-left rounded-md px-3 py-2 text-sm border border-black/10 dark:border-white/10 inline-block"
-              data-sv-show="video"
-            >
-              YouTube
-            </button>
-            <button
-              type="button"
-              class="media-item w-full text-left rounded-md px-3 py-2 text-sm border border-black/10 dark:border-white/10 inline-block"
-              data-sv-show="thumb"
-            >
-              Thumbnail
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Friendly Farm Modal ****************** -->
-
-  <div id="friendly-farm-modal" class="media-modal fixed inset-0 z-[9999] hidden" aria-hidden="true" data-modal>
-    <div class="media-backdrop absolute inset-0 z-0 bg-black/40 backdrop-blur-sm" data-modal-close></div>
-    <div class="relative mx-auto my-8 max-w-5xl px-4 sm:px-6">
-      <div
-        class="modal-panel relative z-10 rounded-xl bg-white dark:bg-slate-900 shadow-xl border border-black/10 dark:border-white/10 pointer-events-auto"
-        role="dialog"
-        aria-modal="true"
-        aria-label="Friendly Farm"
-      >
-        <div class="flex items-center justify-between px-4 sm:px-6 py-3 border-b border-black/10 dark:border-white/10">
-          <div>
-            <div class="text-sm font-semibold text-gray-800 dark:text-slate-100">Friendly Farm</div>
-            <div class="text-xs text-gray-500 dark:text-slate-400">
-              Social network game (SNG) with farming simulation and defense gameplay; project lead.
-            </div>
-          </div>
-          <button
-            type="button"
-            class="text-sm text-gray-500 hover:text-gray-800 dark:text-slate-400 dark:hover:text-slate-200"
-            data-modal-close
-          >
-            Close
-          </button>
-        </div>
-        <div class="grid gap-4 sm:gap-6 p-4 sm:p-6 md:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
-          <div class="media-player-card rounded-lg bg-black/5 dark:bg-black/30 p-2 sm:p-3">
-            <iframe
-              id="friendly-farm-player"
-              class="media-player w-full max-w-full rounded-md bg-black"
-              src=""
-              title="Friendly Farm YouTube player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
-            <img
-              id="friendly-farm-thumb-farming"
-              src={friendlyFarmFarmingSrc}
-              alt="Friendly Farm farming preview"
-              class="media-thumb hidden w-full rounded-md object-cover"
-              loading="lazy"
-              decoding="async"
-            />
-            <img
-              id="friendly-farm-thumb-defense"
-              src={friendlyFarmDefenseSrc}
-              alt="Friendly Farm defense preview"
-              class="media-thumb hidden w-full rounded-md object-cover"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-          <div class="space-y-3">
-            <div class="text-xs uppercase tracking-wide text-gray-500 dark:text-slate-400">Resources</div>
-            <button
-              type="button"
-              class="media-item w-full text-left rounded-md px-3 py-2 text-sm border border-black/10 dark:border-white/10 inline-block"
-              data-ff-show="video"
-            >
-              YouTube
-            </button>
-            <button
-              type="button"
-              class="media-item w-full text-left rounded-md px-3 py-2 text-sm border border-black/10 dark:border-white/10 inline-block"
-              data-ff-show="farming"
-            >
-              Thumbnail: Farming
-            </button>
-            <button
-              type="button"
-              class="media-item w-full text-left rounded-md px-3 py-2 text-sm border border-black/10 dark:border-white/10 inline-block"
-              data-ff-show="defense"
-            >
-              Thumbnail: Defense
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Family Story Modal ****************** -->
-
-  <div id="family-story-modal" class="media-modal fixed inset-0 z-[9999] hidden" aria-hidden="true" data-modal>
-    <div class="media-backdrop absolute inset-0 z-0 bg-black/40 backdrop-blur-sm" data-modal-close></div>
-    <div class="relative mx-auto my-8 max-w-5xl px-4 sm:px-6">
-      <div
-        class="modal-panel relative z-10 rounded-xl bg-white dark:bg-slate-900 shadow-xl border border-black/10 dark:border-white/10 pointer-events-auto"
-        role="dialog"
-        aria-modal="true"
-        aria-label="Family Story"
-      >
-        <div class="flex items-center justify-between px-4 sm:px-6 py-3 border-b border-black/10 dark:border-white/10">
-          <div>
-            <div class="text-sm font-semibold text-gray-800 dark:text-slate-100">Family Story</div>
-            <div class="text-xs text-gray-500 dark:text-slate-400">
-              Family-focused SNS application built as an Android hybrid web app; project lead.
-            </div>
-          </div>
-          <button
-            type="button"
-            class="text-sm text-gray-500 hover:text-gray-800 dark:text-slate-400 dark:hover:text-slate-200"
-            data-modal-close
-          >
-            Close
-          </button>
-        </div>
-        <div class="grid gap-4 sm:gap-6 p-4 sm:p-6 md:grid-cols-1">
-          <div class="media-player-card rounded-lg bg-black/5 dark:bg-black/30 p-2 sm:p-3">
-            <img
-              id="family-story-thumb"
-              src={familyStoryPreviewSrc}
-              alt="Family Story preview"
-              class="media-thumb w-full rounded-md object-cover"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Seminar: 3D Math Modal ****************** -->
-
-  <div id="seminar-3d-math-modal" class="media-modal fixed inset-0 z-[9999] hidden" aria-hidden="true" data-modal>
-    <div class="media-backdrop absolute inset-0 z-0 bg-black/40 backdrop-blur-sm" data-modal-close></div>
-    <div class="relative mx-auto my-8 max-w-5xl px-4 sm:px-6">
-      <div
-        class="modal-panel relative z-10 rounded-xl bg-white dark:bg-slate-900 shadow-xl border border-black/10 dark:border-white/10 pointer-events-auto"
-        role="dialog"
-        aria-modal="true"
-        aria-label="Vector, Matrix and Quaternion for 3D Programming"
-      >
-        <div class="flex items-center justify-between px-4 sm:px-6 py-3 border-b border-black/10 dark:border-white/10">
-          <div>
-            <div class="text-sm font-semibold text-gray-800 dark:text-slate-100">
-              Vector, Matrix and Quaternion for 3D Programming
-            </div>
-            <div class="text-xs text-gray-500 dark:text-slate-400">Seminar deck preview</div>
-          </div>
-          <button
-            type="button"
-            class="text-sm text-gray-500 hover:text-gray-800 dark:text-slate-400 dark:hover:text-slate-200"
-            data-modal-close
-          >
-            Close
-          </button>
-        </div>
-        <div class="grid gap-4 sm:gap-6 p-4 sm:p-6 md:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
-          <div class="media-player-card rounded-lg bg-black/5 dark:bg-black/30 p-2 sm:p-3">
-            <iframe
-              id="seminar-3d-math-player"
-              class="media-player media-player--slides w-full max-w-full rounded-md bg-white"
-              src=""
-              title="3D math seminar slides"
-              allowfullscreen
-            ></iframe>
-          </div>
-          <div class="space-y-3">
-            <div class="text-xs uppercase tracking-wide text-gray-500 dark:text-slate-400">Resources</div>
-            <a
-              class="media-item w-full text-left rounded-md px-3 py-2 text-sm border border-black/10 dark:border-white/10 inline-block"
-              href="https://www.slideshare.net/WoohyunKim16/3d-85975448"
-              target="_blank"
-              rel="noopener"
-            >
-              Slides
-            </a>
-            <a
-              class="media-item w-full text-left rounded-md px-3 py-2 text-sm border border-black/10 dark:border-white/10 inline-block"
-              href="https://www.slideshare.net/WoohyunKim16"
-              target="_blank"
-              rel="noopener"
-            >
-              SlideShare Profile
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Seminar: OpenMP/MPI Modal ****************** -->
-
-  <div id="seminar-openmp-modal" class="media-modal fixed inset-0 z-[9999] hidden" aria-hidden="true" data-modal>
-    <div class="media-backdrop absolute inset-0 z-0 bg-black/40 backdrop-blur-sm" data-modal-close></div>
-    <div class="relative mx-auto my-8 max-w-5xl px-4 sm:px-6">
-      <div
-        class="modal-panel relative z-10 rounded-xl bg-white dark:bg-slate-900 shadow-xl border border-black/10 dark:border-white/10 pointer-events-auto"
-        role="dialog"
-        aria-modal="true"
-        aria-label="OpenMP and MPI for Beginners"
-      >
-        <div class="flex items-center justify-between px-4 sm:px-6 py-3 border-b border-black/10 dark:border-white/10">
-          <div>
-            <div class="text-sm font-semibold text-gray-800 dark:text-slate-100">OpenMP and MPI for Beginners</div>
-            <div class="text-xs text-gray-500 dark:text-slate-400">Seminar deck preview</div>
-          </div>
-          <button
-            type="button"
-            class="text-sm text-gray-500 hover:text-gray-800 dark:text-slate-400 dark:hover:text-slate-200"
-            data-modal-close
-          >
-            Close
-          </button>
-        </div>
-        <div class="grid gap-4 sm:gap-6 p-4 sm:p-6 md:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
-          <div class="media-player-card rounded-lg bg-black/5 dark:bg-black/30 p-2 sm:p-3">
-            <iframe
-              id="seminar-openmp-player"
-              class="media-player media-player--slides w-full max-w-full rounded-md bg-white"
-              src=""
-              title="OpenMP and MPI seminar slides"
-              allowfullscreen
-            ></iframe>
-          </div>
-          <div class="space-y-3">
-            <div class="text-xs uppercase tracking-wide text-gray-500 dark:text-slate-400">Resources</div>
-            <a
-              class="media-item w-full text-left rounded-md px-3 py-2 text-sm border border-black/10 dark:border-white/10 inline-block"
-              href="https://www.slideshare.net/WoohyunKim16/openmp-for-beginners"
-              target="_blank"
-              rel="noopener"
-            >
-              Slides
-            </a>
-            <a
-              class="media-item w-full text-left rounded-md px-3 py-2 text-sm border border-black/10 dark:border-white/10 inline-block"
-              href="https://www.slideshare.net/WoohyunKim16"
-              target="_blank"
-              rel="noopener"
-            >
-              SlideShare Profile
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
+    <Features3
+      title="Awards and Public Activity"
+      columns={2}
+      items={[
+        {
+          title: 'KAST Preliminary Leading Scientist',
+          description: 'Selected by the Korean Academy of Science and Technology in 2011.',
+          icon: 'tabler:award',
+        },
+        {
+          title: 'Global Ph.D. Fellowship',
+          description: 'National Research Foundation of Korea fellowship recipient from 2011.03 to 2016.02.',
+          icon: 'tabler:school',
+        },
+        {
+          title: 'UCLA Summer School',
+          description: 'Fully funded invited participant in 2014 for electronic-structure theory.',
+          icon: 'tabler:certificate',
+        },
+        {
+          title: 'Public Research and Review',
+          description:
+            'Principal investigator for NRF projects, author of MSIT/NRF reports on quantum computing and metaverse technology trends, and chair judge for an AI training-data hackathon.',
+          icon: 'tabler:gavel',
+        },
+      ]}
+    />
   </div>
 </Layout>
-
-<script is:inline>
-  const syncMetaLogoTheme = () => {
-    const isDark = document.documentElement.classList.contains('dark');
-    document.querySelectorAll('.meta-logo svg').forEach((svg) => {
-      svg.classList.toggle('dark', isDark);
-      svg.classList.toggle('light', !isDark);
-    });
-  };
-
-  syncMetaLogoTheme();
-
-  const observer = new MutationObserver(syncMetaLogoTheme);
-  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-
-  const initVanillaVibesModal = () => {
-    const modal = document.getElementById('vanillavibes-modal');
-    if (!modal || modal.dataset.vvBound === 'true') return;
-    const player = modal.querySelector('#vanillavibes-player');
-    if (!player) return;
-
-    modal.dataset.vvBound = 'true';
-
-    const getButtons = () => Array.from(modal.querySelectorAll('[data-vv-src]'));
-
-    const setActiveVideo = (button, shouldPlay = false) => {
-      if (!button || !player) return;
-      const buttons = getButtons();
-      buttons.forEach((btn) => btn.classList.remove('is-active'));
-      button.classList.add('is-active');
-      const src = button.getAttribute('data-vv-src');
-      if (src) {
-        player.src = src;
-        player.load();
-        if (shouldPlay) {
-          player.play().catch(() => {});
-        }
-      }
-    };
-
-    const resetPlayer = () => {
-      if (!player) return;
-      player.pause();
-      player.removeAttribute('src');
-      player.load();
-    };
-
-    modal.addEventListener('modal:open', () => {
-      const buttons = getButtons();
-      setActiveVideo(buttons[0], false);
-    });
-    modal.addEventListener('modal:close', resetPlayer);
-
-    modal.addEventListener('click', (event) => {
-      const button = event.target.closest('[data-vv-src]');
-      if (button) {
-        setActiveVideo(button, true);
-      }
-    });
-  };
-
-  initVanillaVibesModal();
-  document.addEventListener('astro:after-swap', initVanillaVibesModal);
-
-  const initWonderlandModal = () => {
-    const modal = document.getElementById('wonderland-modal');
-    if (!modal || modal.dataset.wwBound === 'true') return;
-    const player = modal.querySelector('#wonderland-player');
-    if (!player) return;
-
-    modal.dataset.wwBound = 'true';
-
-    const getButtons = () => Array.from(modal.querySelectorAll('[data-ww-src]'));
-
-    const setActiveVideo = (button) => {
-      if (!button || !player) return;
-      const buttons = getButtons();
-      buttons.forEach((btn) => btn.classList.remove('is-active'));
-      button.classList.add('is-active');
-      const src = button.getAttribute('data-ww-src');
-      if (src) {
-        player.setAttribute('src', `${src}?rel=0&modestbranding=1`);
-      }
-    };
-
-    const resetPlayer = () => {
-      if (!player) return;
-      player.setAttribute('src', '');
-    };
-
-    modal.addEventListener('modal:open', () => {
-      const buttons = getButtons();
-      setActiveVideo(buttons[0]);
-    });
-    modal.addEventListener('modal:close', resetPlayer);
-
-    modal.addEventListener('click', (event) => {
-      const button = event.target.closest('[data-ww-src]');
-      if (button) {
-        setActiveVideo(button);
-      }
-    });
-  };
-
-  initWonderlandModal();
-  document.addEventListener('astro:after-swap', initWonderlandModal);
-
-  const initSimpleIframeModal = (modalId, embedSrc) => {
-    const modal = document.getElementById(modalId);
-    if (!modal || modal.dataset.simpleBound === 'true') return;
-    const player = modal.querySelector('iframe');
-    if (!player) return;
-
-    modal.dataset.simpleBound = 'true';
-
-    const resetPlayer = () => {
-      player.setAttribute('src', '');
-    };
-
-    modal.addEventListener('modal:open', () => {
-      player.setAttribute('src', embedSrc);
-    });
-    modal.addEventListener('modal:close', resetPlayer);
-  };
-
-  const initCrossBridgeModal = () => {
-    const modal = document.getElementById('crossbridge-modal');
-    if (!modal || modal.dataset.cbBound === 'true') return;
-    const player = modal.querySelector('#crossbridge-player');
-    const thumb = modal.querySelector('#crossbridge-thumb');
-    if (!player || !thumb) return;
-
-    modal.dataset.cbBound = 'true';
-
-    const showVideo = () => {
-      thumb.classList.add('hidden');
-      player.classList.remove('hidden');
-      player.setAttribute(
-        'src',
-        'https://www.youtube.com/embed/j9WeBjJaUlE?list=PLFvdltGhnoAOEi8856S_SpO5De_5REK_o&rel=0&modestbranding=1'
-      );
-    };
-
-    const showThumb = () => {
-      player.setAttribute('src', '');
-      player.classList.add('hidden');
-      thumb.classList.remove('hidden');
-    };
-
-    modal.addEventListener('modal:open', showVideo);
-    modal.addEventListener('modal:close', showThumb);
-
-    modal.addEventListener('click', (event) => {
-      if (event.target.closest('[data-cb-show="video"]')) {
-        showVideo();
-      } else if (event.target.closest('[data-cb-show="thumb"]')) {
-        showThumb();
-      }
-    });
-  };
-
-  const initSmartVoiceModal = () => {
-    const modal = document.getElementById('smartvoice-modal');
-    if (!modal || modal.dataset.svBound === 'true') return;
-    const player = modal.querySelector('#smartvoice-player');
-    const thumb = modal.querySelector('#smartvoice-thumb');
-    if (!player || !thumb) return;
-
-    modal.dataset.svBound = 'true';
-
-    const showVideo = () => {
-      thumb.classList.add('hidden');
-      player.classList.remove('hidden');
-      player.setAttribute(
-        'src',
-        'https://www.youtube.com/embed/videoseries?list=PLFvdltGhnoANUmPkSl9IVSECUSKcswDoK&rel=0&modestbranding=1'
-      );
-    };
-
-    const showThumb = () => {
-      player.setAttribute('src', '');
-      player.classList.add('hidden');
-      thumb.classList.remove('hidden');
-    };
-
-    modal.addEventListener('modal:open', showVideo);
-    modal.addEventListener('modal:close', showThumb);
-
-    modal.addEventListener('click', (event) => {
-      if (event.target.closest('[data-sv-show="video"]')) {
-        showVideo();
-      } else if (event.target.closest('[data-sv-show="thumb"]')) {
-        showThumb();
-      }
-    });
-  };
-
-  const initFriendlyFarmModal = () => {
-    const modal = document.getElementById('friendly-farm-modal');
-    if (!modal || modal.dataset.ffBound === 'true') return;
-    const player = modal.querySelector('#friendly-farm-player');
-    const farmingThumb = modal.querySelector('#friendly-farm-thumb-farming');
-    const defenseThumb = modal.querySelector('#friendly-farm-thumb-defense');
-    if (!player || !farmingThumb || !defenseThumb) return;
-
-    modal.dataset.ffBound = 'true';
-
-    const hideThumbs = () => {
-      farmingThumb.classList.add('hidden');
-      defenseThumb.classList.add('hidden');
-    };
-
-    const showVideo = () => {
-      hideThumbs();
-      player.classList.remove('hidden');
-      player.setAttribute(
-        'src',
-        'https://www.youtube.com/embed/8CI9qfpottU?list=PLFvdltGhnoAPDOS2YjjSNd1FlrL-JpJZt&rel=0&modestbranding=1'
-      );
-    };
-
-    const showThumb = (variant) => {
-      player.setAttribute('src', '');
-      player.classList.add('hidden');
-      hideThumbs();
-      if (variant === 'defense') {
-        defenseThumb.classList.remove('hidden');
-      } else {
-        farmingThumb.classList.remove('hidden');
-      }
-    };
-
-    modal.addEventListener('modal:open', showVideo);
-    modal.addEventListener('modal:close', () => showThumb('farming'));
-
-    modal.addEventListener('click', (event) => {
-      const button = event.target.closest('[data-ff-show]');
-      if (!button) return;
-      const target = button.getAttribute('data-ff-show');
-      if (target === 'video') {
-        showVideo();
-      } else {
-        showThumb(target);
-      }
-    });
-  };
-
-  initCrossBridgeModal();
-  initSmartVoiceModal();
-  initFriendlyFarmModal();
-  initSimpleIframeModal(
-    'seminar-3d-math-modal',
-    'https://www.slideshare.net/slideshow/embed_code/key/j8r1JUnNZet8E0'
-  );
-  initSimpleIframeModal(
-    'seminar-openmp-modal',
-    'https://www.slideshare.net/slideshow/embed_code/key/b8E8s3PsQjwKqr'
-  );
-
-  document.addEventListener('astro:after-swap', () => {
-    initCrossBridgeModal();
-    initSmartVoiceModal();
-    initFriendlyFarmModal();
-    initSimpleIframeModal(
-      'seminar-3d-math-modal',
-      'https://www.slideshare.net/slideshow/embed_code/key/j8r1JUnNZet8E0'
-    );
-    initSimpleIframeModal(
-      'seminar-openmp-modal',
-      'https://www.slideshare.net/slideshow/embed_code/key/b8E8s3PsQjwKqr'
-    );
-  });
-</script>
 
 <style>
   @media (min-width: 1024px) {
@@ -1070,94 +330,18 @@ const wonderlandVideos = [
     .skills-grid > * {
       grid-column: span 2 / span 2;
     }
-
-    .skills-grid > *:nth-last-child(2) {
-      grid-column-start: 2;
-    }
-
-    .skills-grid > *:last-child {
-      grid-column-start: 4;
-    }
   }
 
-  .media-modal {
-    pointer-events: auto;
-  }
-
-  .modal-panel,
-  .modal-panel * {
-    pointer-events: auto;
-  }
-
-  .media-modal:not(.hidden) {
-    display: flex;
-    align-items: center;
-  }
-
-  .media-item {
-    color: #1f2937;
-    background: #ffffff;
-    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-  }
-
-  .media-item.is-active {
-    background: #eff6ff;
-    border-color: #93c5fd;
-    color: #1d4ed8;
-  }
-
-  .media-player-card {
-    min-height: 240px;
-    display: grid;
-    place-items: center;
-  }
-
-  .media-player {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    max-height: 420px;
-    aspect-ratio: 16 / 9;
-  }
-
-  .media-player--slides {
-    aspect-ratio: 4 / 3;
-    max-height: 480px;
-  }
-
-  .media-thumb {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 9;
-    max-height: 420px;
-    object-fit: cover;
-  }
-
-  :global(html.dark) .media-item {
-    background: #0f172a;
-    color: #e2e8f0;
-  }
-
-  :global(html.dark) .media-item.is-active {
-    background: #0b1220;
-    border-color: #1d4ed8;
-    color: #bfdbfe;
-  }
-
-  :global(.resume-content a),
   :global(.resume-content .resume-link) {
     color: #2563eb !important;
     font-weight: 600 !important;
   }
 
-  :global(.resume-content a:hover),
   :global(.resume-content .resume-link:hover) {
     text-decoration: underline;
     text-underline-offset: 2px;
   }
 
-  :global(html.dark) .resume-content a,
   :global(html.dark) .resume-content .resume-link {
     color: #60a5fa !important;
   }
