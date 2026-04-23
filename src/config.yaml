@@ -11,7 +11,7 @@ metadata:
   title:
     default: Seongsoo Choi
     template: '%s | Seongsoo Choi'
-  description: 'Seongsoo Choi is CEO of MetaIntelligence and an Integrated AI Solution Architect with a Ph.D. in Physics.'
+  description: 'Seongsoo Choi is CEO of MetaIntelligence, working on applied AI systems with a background in physics.'
   robots:
     index: true
     follow: true

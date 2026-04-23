@@ -10,7 +10,7 @@ import metaLogoRaw from '~/assets/images/logo_metaintelligence.svg?raw';
 const metadata = {
   title: 'Resume - Seongsoo Choi',
   description:
-    'Resume of Seongsoo Choi, CEO of MetaIntelligence, Integrated AI Solution Architect, and Ph.D. in Physics.',
+    'Resume of Seongsoo Choi, CEO of MetaIntelligence, AI systems architect, and Ph.D. in Physics.',
 };
 
 const careerItems = [
@@ -19,9 +19,9 @@ const careerItems = [
       'CEO / President <br /> <span class="font-normal">MetaIntelligence Inc.</span> <br /> <span class="text-sm font-normal">2021.12 - Present</span>',
     description:
       `<ul class="list-disc pl-5 space-y-1">
-        <li>Founded MetaIntelligence and leads corporate strategy, research-center operations, and R&amp;D execution.</li>
-        <li>Serves as Integrated AI Solution Architect with responsibility across NLP, vision AI, and applied AI systems.</li>
-        <li>Leads patent-backed commercialization and government R&amp;D programs.</li>
+        <li>Founded MetaIntelligence and leads strategy, research operations, and R&amp;D projects.</li>
+        <li>Works on AI systems across NLP, vision, manufacturing data, and reporting workflows.</li>
+        <li>Oversees patent-related work and government R&amp;D projects.</li>
       </ul>`,
     icon: 'tabler:building',
   },
@@ -110,7 +110,7 @@ const projectItems = [
       'MetaInsight MFG <br /> <span class="font-normal">AX-LLM Collaboration Project</span> <br /> <span class="text-sm font-normal">Scheduled from 2026.06</span>',
     description:
       `<ul class="list-disc pl-5 space-y-1">
-        <li>Agentic AI for root-cause diagnosis and automated report generation from production data.</li>
+        <li>Root-cause diagnosis and automated report generation from production data.</li>
         <li>Role: PM and architect, with 60 percent allocation and NC AI collaboration ownership.</li>
       </ul>`,
     icon: 'tabler:robot',
@@ -167,7 +167,8 @@ const projectItems = [
       <Fragment slot="title">Resume</Fragment>
 
       <Fragment slot="subtitle">
-        Seongsoo Choi, CEO and president of MetaIntelligence, Integrated AI Solution Architect, Ph.D. in Physics.
+        Seongsoo Choi is CEO and president of MetaIntelligence, with work across applied AI systems and physics-based
+        research.
       </Fragment>
     </Hero>
 
@@ -184,19 +185,19 @@ const projectItems = [
     </section>
 
     <Stats
-      title="Professional Snapshot"
+      title="Profile"
       stats={[
         { title: 'Current Role', amount: 'CEO' },
-        { title: 'No. 10-2573563', amount: 'Patent' },
+        { title: 'Registered Patent', amount: '1' },
         { title: 'NRF Projects', amount: '7' },
-        { title: 'Doctorate', amount: 'Physics' },
+        { title: 'Doctorate', amount: 'PhD' },
       ]}
     />
 
     <Steps
       id="experience"
       title="Career Experience"
-      subtitle="A career spanning AI company leadership, industrial vision AI, supercomputing, and theoretical physics research."
+      subtitle="Experience across AI company operations, industrial vision AI, supercomputing, and physics research."
       items={careerItems}
       classes={{ container: 'max-w-3xl' }}
     />
@@ -204,24 +205,24 @@ const projectItems = [
     <Features3
       id="skills"
       title="Core Capabilities"
-      subtitle="Technical and leadership capabilities drawn from the resume."
+      subtitle="Technical and management areas from the resume."
       columns={3}
       classes={{ items: { container: 'skills-grid mt-10 max-w-5xl', panel: 'max-w-none w-full' } }}
       items={[
         {
           title: 'Physics-Informed AI',
-          description: 'AI model and system design grounded in theoretical physics and first-principles reasoning.',
+          description: 'AI design informed by physics and mathematical modeling.',
           icon: 'tabler:atom',
         },
         {
-          title: 'First-Principles NLP',
+          title: 'Natural Language Analysis',
           description:
             'Mathematical partitioning of natural-language datasets, digital-tree construction, parameter optimization, and invariant-basis derivation.',
           icon: 'tabler:binary-tree',
         },
         {
-          title: 'Integrated AI',
-          description: 'Combined NLP and vision AI architecture for applied industrial solutions.',
+          title: 'Applied AI Systems',
+          description: 'NLP and vision AI workflows for industrial and research applications.',
           icon: 'tabler:sitemap',
         },
         {
@@ -236,7 +237,7 @@ const projectItems = [
         },
         {
           title: 'R&D Management',
-          description: 'Patent-backed commercialization, government R&D project leadership, and large-project PM.',
+          description: 'Government R&D projects, technical planning, and partner coordination.',
           icon: 'tabler:briefcase',
         },
       ]}
@@ -252,19 +253,19 @@ const projectItems = [
     <Steps
       id="projects"
       title="Selected Projects"
-      subtitle="Publicly shareable project summaries from the resume."
+      subtitle="Public project summaries from the resume."
       items={projectItems}
       classes={{ container: 'max-w-3xl' }}
     />
 
     <Content
-      title="Intellectual Property and Publications"
-      subtitle="Registered IP and academic output."
+      title="IP and Publications"
+      subtitle="Patent and academic work."
       items={[
         {
           title: 'Korean Patent No. 10-2573563',
           description:
-            'First-principles natural-language data analysis system and method. Sole inventor: Seongsoo Choi. Assignee: MetaIntelligence Inc. Filed 2022.11.02 and registered 2023.08.29.',
+            'Natural-language data analysis system and method. Sole inventor: Seongsoo Choi. Assignee: MetaIntelligence Inc. Filed 2022.11.02 and registered 2023.08.29.',
         },
         {
           title: 'Journal of Mathematical Physics',
@@ -284,7 +285,7 @@ const projectItems = [
           <div class="mt-6 text-center">
             <div class="text-sm font-semibold text-gray-900 dark:text-white">Registered IP and Research Output</div>
             <p class="mt-2 text-sm text-muted dark:text-slate-400">
-              Patent, journal publication, and doctoral dissertation.
+              Registered patent, journal publication, and doctoral dissertation.
             </p>
           </div>
         </div>

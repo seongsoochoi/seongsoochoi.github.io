@@ -8,16 +8,16 @@ import Stats from '~/components/widgets/Stats.astro';
 import metaLogoRaw from '~/assets/images/logo_metaintelligence.svg?raw';
 
 const metadata = {
-  title: 'Seongsoo Choi | Integrated AI Solution Architect',
+  title: 'Seongsoo Choi | AI Systems and Physics',
   ignoreTitleTemplate: true,
   description:
-    'Seongsoo Choi is CEO of MetaIntelligence and an Integrated AI Solution Architect with a Ph.D. in Physics.',
+    'Seongsoo Choi is CEO of MetaIntelligence, working on applied AI systems with a background in physics.',
 };
 ---
 
 <Layout metadata={metadata}>
   <Hero
-    tagline="Integrated AI Solution Architect"
+    tagline="AI Systems and Physics"
     actions={[
       { variant: 'primary', text: 'View Resume', href: '/resume', icon: 'tabler:file-text' },
       { text: 'Contact', href: 'mailto:choi@metaintelligence.co.kr', icon: 'tabler:mail' },
@@ -32,61 +32,61 @@ const metadata = {
     </Fragment>
 
     <Fragment slot="subtitle">
-      Ph.D. physicist building physics-informed AI systems across natural language, vision, high-performance
-      computing, and R&amp;D strategy.
+      Works on applied AI systems for language, vision, manufacturing data, and research analysis, with a background in
+      physics.
     </Fragment>
   </Hero>
 
   <Stats
-    title="Profile at a Glance"
+    title="Profile"
     stats={[
       { title: 'Founded MetaIntelligence', amount: '2021' },
-      { title: 'No. 10-2573563', amount: 'AI Patent' },
-      { title: 'NRF Projects Led', amount: '7' },
-      { title: 'Physics Ph.D.', amount: 'POSTECH' },
+      { title: 'Registered Patent', amount: '1' },
+      { title: 'NRF Projects', amount: '7' },
+      { title: 'POSTECH Physics', amount: 'PhD' },
     ]}
   />
 
   <Features
     id="competencies"
-    tagline="Core Competencies"
-    title="Physics-Informed AI Leadership"
-    subtitle="A first-principles approach to AI architecture, manufacturing intelligence, and research commercialization."
+    tagline="Work"
+    title="Main Areas"
+    subtitle="Applied AI work across language, vision, manufacturing data, and research analysis."
     items={[
       {
-        title: 'Physics-Informed AI',
+        title: 'AI System Design',
         description:
-          'Designs AI models and analytical systems from theoretical physics, mathematical structure, and first-principles reasoning.',
-        icon: 'tabler:atom',
-      },
-      {
-        title: 'Integrated AI Architecture',
-        description:
-          'Architects end-to-end solutions that combine NLP, vision AI, optimization, and domain-specific workflows.',
+          'Designs workflows that connect data processing, model logic, review, and reporting.',
         icon: 'tabler:sitemap',
       },
       {
-        title: 'First-Principles NLP',
+        title: 'Physics-Based Modeling',
         description:
-          'Developed a patented natural-language data analysis system based on partitioning, digital trees, parameter optimization, and invariant bases.',
+          'Uses physics and mathematical structure when they are relevant to modeling and analysis.',
+        icon: 'tabler:atom',
+      },
+      {
+        title: 'Natural Language Analysis',
+        description:
+          'Patent work covers data partitioning, digital-tree construction, parameter optimization, and invariant-basis methods.',
         icon: 'tabler:binary-tree',
       },
       {
-        title: 'Manufacturing Vision AI',
+        title: 'Manufacturing Vision',
         description:
-          'Plans anomaly detection and VLM-assisted defect classification systems for high-speed industrial inspection.',
+          'Work includes defect detection, classification, and inspection support for manufacturing environments.',
         icon: 'tabler:camera-search',
       },
       {
         title: 'HPC and Quantum Research',
         description:
-          'Experienced in large-scale supercomputing, quantum many-body theory, mathematical physics, and computational physics.',
+          'Research background includes supercomputing, quantum many-body theory, and computational physics.',
         icon: 'tabler:cpu',
       },
       {
-        title: 'R&D Management',
+        title: 'Project Management',
         description:
-          'Leads government R&D programs, patent-based commercialization, corporate research operations, and multi-partner project delivery.',
+          'Leads R&D projects, technical planning, partner coordination, and delivery management.',
         icon: 'tabler:briefcase',
       },
     ]}
@@ -95,32 +95,32 @@ const metadata = {
   <Content
     isReversed
     tagline="Current Work"
-    title="Building Integrated AI Systems for Real-World Decisions"
-    subtitle="MetaIntelligence focuses on applied AI that connects data, diagnosis, reporting, and actionable industrial insight."
+    title="Applied AI and Research Analysis"
+    subtitle="MetaIntelligence works on AI systems for manufacturing, information analysis, and reporting workflows."
     items={[
       {
         title: 'MetaInsight MFG',
         description:
-          'Agentic AI for production-data root-cause diagnosis and automated report generation, scheduled from June 2026.',
+          'Production-data diagnosis and automated report generation, scheduled from June 2026.',
       },
       {
         title: 'MVI DefectSense',
         description:
-          'Unsupervised normality learning for fine-defect detection, paired with VLM-based defect classification and explanation.',
+          'Fine-defect detection using unsupervised normality learning, with VLM-based classification support.',
       },
       {
         title: 'NRF Information Analysis',
         description:
-          'Principal investigator for overseas R&D investment analysis and multiple NRF technology-trend research projects.',
+          'Principal investigator for overseas R&D investment analysis and NRF technology-trend research projects.',
       },
     ]}
   >
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        From mathematical structure to deployed AI
+        Research background, practical delivery
       </h3>
-      The work connects theoretical modeling with business execution: define the structure, build the architecture,
-      validate the method, and translate it into an AI solution that can be operated by real teams.
+      The work starts with the problem structure, then defines the data flow, model role, evaluation criteria, and
+      reporting process.
     </Fragment>
 
     <Fragment slot="image">
